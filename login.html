@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk Smart - by Asher</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .textbox {
+        width: 60%;
+        height: 60px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        font-size: 15px;
+        margin-left: 90px;
+      }
+      label {
+        margin-left: 90px;
+      }
+      .login:hover {
+        background-color: #240505;
+        transform: scale(1.05);
+      }
+      .container2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>   
+  <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white;">
+    <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
+      <a href="index.html"> <img src="Images/Walk Smart.png" alt="Logo" width="150" height="130" style=" margin-right: 1100px;"> </a> 
+      <a href="index.html" style="margin-right: 55px; text-decoration: none; color: white;">Home</a>
+      <a href="Product.html" style="margin-right: 55px; text-decoration: none; color: white;">Products</a>
+      <a href="aboutus.html" style="margin-right: 55px; text-decoration: none; color: white;">About us</a>
+      <a href="login.html" style="margin-right: 55px; border-radius: 5px; padding: 14px 20px; text-decoration: none; color: white;">Login</a>
+    </div>
+    
+    <br><br>
+    <div class="container2">
+      <form id="loginForm" method="post" onsubmit="return validateLogin()" style="justify-content: center;">
+        <h1 style="font-size: 40px;">Login to Your Account</h1><br>
+        <label>Username</label><br><br>
+        <input type="text" id="username" class="textbox" placeholder="Enter your username" required><br><br>
+        
+        <label>Email</label><br><br>
+        <input type="email" id="email" class="textbox" placeholder="Enter your email" required><br><br>
+        
+        <label>Password</label><br><br>
+        <input type="password" id="password" class="textbox" placeholder="Enter your password" required minlength="8"><br><br>
+
+        <input type="submit" value="Log in" class="login" style="background-color: #ff3131; padding: 20px 50px; border-radius: 5px; color: white; border: none; cursor: pointer; margin-left: 170px; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+      </form>
+    </div>
+    <br> <br> <br><br>
+    
+    <script>
+      // Sample credentials
+      const USERNAME = 'user123';
+      const PASSWORD = 'password123';
+    
+      let loginAttempts = 0;
+    
+      function validateLogin(event) {
+        
+        event.preventDefault();
+    
+        const username_input = document.getElementById('username').value;
+        const password_input = document.getElementById('password').value;
+        const form = document.getElementById('loginForm');
+    
+        // Check if the username and password match the credentials
+        if (username_input === USERNAME && password_input === PASSWORD) {
+          window.location.href = 'Product.html';
+        } else {
+          loginAttempts++;
+          if (loginAttempts >= 3) {
+            window.location.href = 'error.html';
+          } else {
+            alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
+            // Clear the form fields
+            form.reset();
+          }
+        }
+      }
+      document.getElementById('loginForm').addEventListener('submit', validateLogin);
+    </script>
+    
+
+    <footer>
+      <div>
+        <h1> Store Locations</h1>
+        <ul style="list-style-type: none;; text-align: left;">
+          <li> Walk Smart Mandeville</li><br>
+          <li> Walk Smart Kinsgton</li><br>
+          <li> Walk Smart Falmouth</li><br>
+          <li> Walk Smart Montego Bay</li><br>
+          <li> Walk Smart Spanish Town</li>
+        </ul>
+      </div>
+        <div style="margin-left: 1000px;">
+          <h1>Get in Touch</h1>
+          <p>1-876-553-2950 • Contact Us <br><br>
+
+
+            Mon to Sat: 9am-6pm (EST)<br>
+            Sun: Closed</p>
+        </div>
+     </footer>
+
+
+    
+  </body>
+</html>
