@@ -1,131 +1,71 @@
-
-
-
+/* Style for the product page container */
 .container {
-   
-    font-size: 16px;
-    vertical-align: top;
-    width: 90%; /* Smaller width to leave space on left and right */
-    max-width: 1200px; /* Set a max width for larger screens */
-    margin: 0 auto; /* Center the container */
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Wrap items to new lines */
-    justify-content: center; /* Center items horizontally */
-   
-    border-radius: 10px;
-   
-  }
-
-.product {
-    width: 25%;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-
+  vertical-align: top;
+  width: 100%; /* Full width on mobile */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
 }
 
-
-.product:hover {
-    transform: scale(1.05);
+/* Style for each product section */
+.product {
+  width: 100%; /* Full width on mobile */
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  width: 100% !important; /* Full width on mobile */
+  max-height: 250px;
 }
 
-.price {
-    font-size: 16px;
-   
-    margin: 10px 0;
-}
-
-.sizes {
-    margin: 10px 0;
-}
-
-.sizes button {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 5px;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.sizes button:hover {
-    background-color: #ff3131;
-}
-
-.add-to-cart {
-    background-color: #ff3131;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
-}
-
-.add-to-cart:hover {
-    background-color: #da1f1f;
-}
-
-.product_img {
-  width: 350px !important;
-  height: 350px !important;
-}
-  
-  .exit-link {
-    position: fixed; /* Stays fixed on scroll */
-    top: 870px; /* Distance from the top of the page */
-    left: 40px; /* Distance from the left side */
-    border-radius: 10px;
-    color: white;
-    background-color: #ff3131;
-    padding: 20px 30px;
-    text-decoration: none;
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  /* Adjust product width for tablets */
+  .product {
+    width: 45%;
   }
-
-  /* Style for the "Check out" link */
-  .checkout-link {
-    position: fixed; /* Stays fixed on scroll */
-    top: 870px; /* Distance from the top of the page */
-    right: 40px; /* Distance from the right side */
-    background-color: #ff3131; /* Optional: Add some background color */
-    color: white; /* Optional: Change text color */
-    padding: 20px 30px;
-    text-decoration: none;
-    border-radius: 10px;
+  .cart-link, .checkout-link, .exit-link {
+    top: auto;
+    bottom: 5%; /* Position links lower on mobile */
+    padding: 15px 20px;
+    font-size: 14px;
   }
-  .exit-link:hover {
-    background-color: #da1f1f;
-    transform: scale(1.05);
+  footer {
+    flex-direction: column; /* Stack items vertically in footer */
+    align-items: center;
+    text-align: center;
   }
+}
 
-  /* Style for the "Check out" link */
-  .checkout-link:hover {
-    background-color: #da1f1f;
-    transform: scale(1.05);
+@media (max-width: 480px) {
+  /* Adjust for phones */
+  .product {
+    width: 90%; /* Take almost full width on mobile */
   }
-
-  footer{
-    background-color: #c80808;
-    padding: 40px;
-    color: white;
-    display: flex;  align-items: flex-start; 
-    
-    
+  .container {
+    padding: 10px; /* Reduce padding */
   }
-
-  
+  .exit-link, .cart-link, .checkout-link {
+    width: 100%; /* Full width for each button */
+    padding: 15px;
+    font-size: 14px;
+    bottom: 2%; /* Space links slightly above the bottom */
+    left: 2%;
+    right: 2%;
+  }
+  .product img {
+    max-height: 200px; /* Reduce image height for smaller screens */
+  }
+}
