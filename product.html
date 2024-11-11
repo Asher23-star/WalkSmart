@@ -36,6 +36,8 @@
     }
         
 /* Style for the product page container */
+
+/* Style for the product page container */
 .container {
  
   vertical-align: top;
@@ -117,7 +119,7 @@
 .exit-link {
   position: fixed; 
   top: 89%; 
-  left: 2.%; 
+  left: 2.8%; 
   border-radius: 10px;
   color: white;
   background-color: #ff3131;
@@ -166,6 +168,40 @@ footer{
   padding: 40px;
   color: white;
   display: flex;  align-items: flex-start; 
+}
+@media (max-width: 1200px) {
+  .product {
+    width: 30%; /* Adjusts to 3 products per row on medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .product {
+    width: 45%; /* Adjusts to 2 products per row on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+    width: 100%; /* 1 product per row on small screens */
+    margin-right: 0;
+  }
+
+  /* Adjust the container to be full width on smaller screens */
+  .container {
+    width: 100%;
+  }
+
+  /* Adjust the position of fixed links for smaller screens */
+  .exit-link, .cart-link, .checkout-link {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 10px;
+    width: auto;
+    padding: 10px 15px;
+  }
 }
 
     </style>
