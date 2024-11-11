@@ -5,50 +5,193 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walk Smart - by Asher</title>
     <link rel="stylesheet" href="style.css">
-   
-  </head>
-  <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
-    <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
-      <a href="index.html"> <img src="Walk Smart.png" alt="Logo" width="150" height="130" style=" margin-right: 1100px;"> </a> 
-       <a href="index.html" style="margin-right: 55px; text-decoration: none;color: white">Home</a>
-       <a href="product.html" style="margin-right: 55px; text-decoration: none;color: white">Products</a>
-       <a href="aboutus.html" style="margin-right: 55px; text-decoration: none; color: white">About us</a>
-       <a href="login.html" style="margin-right: 55px; border-radius: 5px; padding: 14px 20px; text-decoration: none; color: white;">Login</a>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        background-color: white;
+      }
 
-    </div>
-    <div style="position: absolute; width: 639px; left: 127px; top: 224px;">
-        <h1 style="font-size: 65px; "> Step into Style with our Trendy Shoes!</h1>
-        <p style="color: #ff3131; font-size: 25px;">
-              <b>2024 Walk Smart</b>
-        </p>
-        <p style=" font-size: 25px;">
-              Our collection include a wide range of shoes for men, women and children. <br><br><br><br>
-              <a href="product.html" style="border-radius: 15px; color: white; background-color: #ff3131; padding: 30px 40px; position: relative; left: 100px; text-decoration: none;"> Shop Now</a>
-              <img src="display.png" style="position: absolute; width: 745px; height: 690px;left: 750px;top: 0px;">
-        </p>
-    
-     </div>
-    
-     <footer style="margin-top: 1000px;">
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #c80808;
+        border-radius: 5px;
+      }
+
+      .header img {
+        width: 150px;
+        height: 120px;
+      }
+
+      .header a {
+        text-decoration: none;
+        color: white;
+        margin-right: 30px;
+        font-size: 16px;
+      }
+
+      .header a:hover {
+        text-decoration: underline;
+      }
+
+      .hero {
+        position: relative;
+        padding: 5% 10%;
+        text-align: left;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        color: #ff3131;
+      }
+
+      .hero a {
+        text-decoration: none;
+        background-color: #ff3131;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 15px;
+        font-size: 1.2rem;
+      }
+
+      .hero img {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: 0;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f8f8f8;
+        margin-top: 20%;
+      }
+
+      footer h1 {
+        margin-bottom: 10px;
+      }
+
+      footer ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      footer p {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+
+        .hero img {
+          width: 100%;
+          height: auto;
+          position: relative;
+          top: 10px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        footer div {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header a {
+          font-size: 14px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero a {
+          padding: 15px 25px;
+        }
+
+        footer h1 {
+          font-size: 1.2rem;
+        }
+
+        footer p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="header">
+      <a href="index.html"><img src="Images/Walk Smart.png" alt="Logo"></a>
       <div>
-        <h1> Store Locations</h1>
-        <ul style="list-style-type: none;; text-align: left;">
-          <li> Walk Smart Mandeville</li><br>
-          <li> Walk Smart Kinsgton</li><br>
-          <li> Walk Smart Falmouth</li><br>
-          <li> Walk Smart Montego Bay</li><br>
-          <li> Walk Smart Spanish Town</li>
+        <a href="index.html">Home</a>
+        <a href="Product.html">Products</a>
+        <a href="aboutus.html">About us</a>
+        <a href="login.html" style="border-radius: 5px; padding: 14px 20px;">Login</a>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Step into Style with our Trendy Shoes!</h1>
+      <p><b>2024 Walk Smart</b></p>
+      <p>Our collection includes a wide range of shoes for men, women, and children.</p>
+      <a href="Product.html">Shop Now</a>
+      <img src="Images/display.png" alt="Shoes Image">
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <div>
+        <h1>Store Locations</h1>
+        <ul>
+          <li>Walk Smart Mandeville</li>
+          <li>Walk Smart Kingston</li>
+          <li>Walk Smart Falmouth</li>
+          <li>Walk Smart Montego Bay</li>
+          <li>Walk Smart Spanish Town</li>
         </ul>
       </div>
-        <div style="margin-left: 1000px;">
-          <h1>Get in Touch</h1>
-          <p>1-876-553-2950 • Contact Us <br><br>
-
-
-            Mon to Sat: 9am-6pm (EST)<br>
-            Sun: Closed</p>
-        </div>
-     </footer>
-</body>
+      <div>
+        <h1>Get in Touch</h1>
+        <p>1-876-553-2950 • Contact Us <br><br>
+          Mon to Sat: 9am-6pm (EST)<br>
+          Sun: Closed</p>
+      </div>
+    </footer>
+  </body>
 </html>
-
