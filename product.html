@@ -47,10 +47,6 @@
   padding: 10px;
   background-color: #c80808;
   border-radius: 5px;
-  position: fixed; /* Changed from absolute to fixed */
-  top: 0; /* Position the header at the top of the viewport */
-  width: 100%; /* Full width of the page */
-  z-index: 1000; /* Ensures the header is above other content */
 }
 
 
@@ -162,32 +158,6 @@
 
         footer div {
           margin-bottom: 20px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .header a {
-          font-size: 14px;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .hero a {
-          padding: 15px 25px;
-        }
-
-        footer h1 {
-          font-size: 1.2rem;
-        }
-
-        footer p {
-          font-size: 0.9rem;
         }
       }
 
@@ -325,17 +295,7 @@ footer{
   color: white;
   display: flex;  align-items: flex-start; 
 }
-@media (max-width: 1200px) {
-  .product {
-    width: 30%; /* Adjusts to 3 products per row on medium screens */
-  }
-}
 
-@media (max-width: 992px) {
-  .product {
-    width: 45%; /* Adjusts to 2 products per row on smaller screens */
-  }
-}
 
 @media (max-width: 768px) {
   .product {
