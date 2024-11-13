@@ -34,7 +34,170 @@
     .fas{
      word-spacing: 0%;
     }
-        
+        body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        background-color: white;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #c80808;
+        border-radius: 5px;
+      }
+
+      .header img {
+        width: 150px;
+        height: 120px;
+      }
+
+      .header a {
+        text-decoration: none;
+        color: white;
+        margin-right: 30px;
+        font-size: 16px;
+      }
+
+      .header a:hover {
+        text-decoration: underline;
+      }
+
+      .hero {
+        position: relative;
+        padding: 5% 10%;
+        text-align: left;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        color: #ff3131;
+      }
+
+      .hero a {
+        text-decoration: none;
+        background-color: #ff3131;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 15px;
+        font-size: 1.2rem;
+      }
+
+      .hero img {
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: 0;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f8f8f8;
+        margin-top: 20%;
+      }
+
+      footer h1 {
+        margin-bottom: 10px;
+      }
+
+      footer ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      footer{
+  background-color: #c80808;
+  padding: 40px;
+  color: white;
+  display: flex;  align-items: flex-start; 
+}
+
+      footer p {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero {
+          text-align: center;
+          padding: 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+
+        .hero img {
+          width: 100%;
+          height: auto;
+          position: relative;
+          top: 10px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        footer div {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header a {
+          font-size: 14px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero a {
+          padding: 15px 25px;
+        }
+
+        footer h1 {
+          font-size: 1.2rem;
+        }
+
+        footer p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="header">
+      <a href="index.html"><img src="Walk Smart.png" alt="Logo"></a>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="Product.html">Products</a>
+        <a href="aboutus.html">About us</a>
+        <a href="login.html" style="border-radius: 5px; padding: 14px 20px;">Login</a>
+      </div>
+    </div>
 /* Style for the product page container */
 
 /* Style for the product page container */
