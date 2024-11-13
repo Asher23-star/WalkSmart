@@ -41,14 +41,18 @@
       }
 
       .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #c80808;
-        border-radius: 5px;
-        position: absolute;
-      }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #c80808;
+  border-radius: 5px;
+  position: fixed; /* Changed from absolute to fixed */
+  top: 0; /* Position the header at the top of the viewport */
+  width: 100%; /* Full width of the page */
+  z-index: 1000; /* Ensures the header is above other content */
+}
+
 
       .header img {
         width: 150px;
