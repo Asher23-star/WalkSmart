@@ -5,179 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walk Smart - by Asher</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      body {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin: 0;
-        background-color: white;
-      }
+   <style>
+     /* General styling */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  background-color: white;
+}
 
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #c80808;
-        border-radius: 5px;
-      }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #c80808;
+}
 
-      .header img {
-        width: 150px;
-        height: 120px;
-        margin-left: 5%;
-      }
+.logo {
+  width: 150px;
+  height: auto;
+}
 
-      .header a {
-        text-decoration: none;
-        color: white;
-        margin-right: 30px;
-        font-size: 16px;
-      }
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
 
-      .header a:hover {
-        text-decoration: underline;
-      }
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
 
-      .hero {
-        position: relative;
-        padding: 5% 10%;
-        text-align: left;
-      }
+.login {
+  background-color: #ff3131;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
 
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-      }
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
 
-      .hero p {
-        font-size: 1.5rem;
-      }
+.main-content h1 {
+  font-size: 40px;
+}
 
-      .hero a {
-        text-decoration: none;
-        background-color: #ff3131;
-        color: white;
-        padding: 20px 30px;
-        border-radius: 15px;
-        font-size: 1.2rem;
-      }
+.subtitle {
+  color: #ff3131;
+  font-size: 25px;
+}
 
-      .hero img {
-        position: absolute;
-        width: 50%;
-        right: 0;
-        top: 0;
-      }
+.description {
+  font-size: 20px;
+  margin: 10px 0;
+}
 
-      footer {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: #c80808;
-        margin-top: 20%;
-      }
+.shop-now {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #ff3131;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+}
 
-      footer h1 {
-        margin-bottom: 10px;
-      }
+.product-display {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+}
 
-      footer ul {
-        list-style-type: none;
-        padding: 0;
-      }
-     
-      footer p {
-        font-size: 1rem;
-      }
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
 
-      @media (max-width: 768px) {
-        .header {
-          flex-direction: column;
-          text-align: center;
-        }
+footer .locations, footer .contact {
+  margin: 10px 0;
+}
 
-        .hero {
-          position: absolute; width: 40%; left: 7%; top: 24%;
-        }
+footer h1 {
+  font-size: 24px;
+}
 
-        .hero h1 {
-          font-size: 2.5rem;
-        }
+/* Responsive Styling */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+  }
 
-        .hero p {
-          font-size: 1.2rem;
-        }
+  .nav-links {
+    gap: 50px;
+  }
 
-        .hero img {
-          width: 100%;
-          height: auto;
-          position: relative;
-          top: 10px;
-          position: absolute; width: 600px; height: 530px;left: 40%;top: 0px;
-        }
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
 
-        footer {
-          flex-direction: column;
-          text-align: center;
-        }
+  .main-content h1 {
+    font-size: 50px;
+  }
 
-        footer div {
-          margin-bottom: 20px;
-        }
-      }
+  footer {
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: left;
+  }
 
-      @media (max-width: 480px) {
-        .header a {
-          font-size: 14px;
-        }
+  .locations ul, .contact p {
+    text-align: left;
+  }
+}
 
-        .hero h1 {
-          font-size: 2rem;
-          
-        }
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+  }
 
-        .hero p {
-          font-size: 1rem;
-        }
+  .main-content {
+    text-align: center;
+  }
 
-        .hero a {
-          padding: 15px 25px;
-        }
+  .product-display {
+    width: 100%;
+  }
 
-        footer h1 {
-          font-size: 1.2rem;
-        }
+  footer {
+    flex-direction: column;
+  }
+}
 
-        footer p {
-          font-size: 0.9rem;
-        }
-      }
-    </style>
+   </style>
   </head>
-  <body>
-    <!-- Header Section -->
+ <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
     <div class="header">
-      <a href="index.html"><img src="Walk Smart.png" alt="Logo"></a>
-      <div>
+      <a href="index.html"> 
+        <img src="Images/Walk Smart.png" alt="Logo" class="logo"> 
+      </a> 
+      <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="Product.html">Products</a>
-        <a href="aboutus.html">About us</a>
-        <a href="login.html" style="border-radius: 5px; padding: 14px 20px;">Login</a>
-      </div>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="login.html" class="login">Login</a>
+      </nav>
     </div>
-
-    <!-- Hero Section -->
-    <div class="hero">
-      <h1>Step into Style with our Trendy Shoes!</h1>
-      <p style="color: #ff3131;"><b>2024 Walk Smart</b></p>
-      <p>Our collection includes a wide range of shoes for men, women, and children.</p>
-      <a href="product.html">Shop Now</a>
-      <img src="display.png" alt="Shoes Image">
+    
+    <div class="main-content">
+        <h1> Step into Style with our Trendy Shoes!</h1>
+        <p class="subtitle">
+              <b>2024 Walk Smart</b>
+        </p>
+        <p class="description">
+              Our collection includes a wide range of shoes for men, women, and children.
+        </p>
+        <a href="Product.html" class="shop-now"> Shop Now</a>
+        <img src="Images/display.png" class="product-display">
     </div>
-
-    <!-- Footer Section -->
-    <footer>
-      <div>
+    
+     <footer>
+      <div class="locations">
         <h1>Store Locations</h1>
         <ul>
           <li>Walk Smart Mandeville</li>
@@ -187,12 +185,13 @@
           <li>Walk Smart Spanish Town</li>
         </ul>
       </div>
-      <div>
-        <h1>Get in Touch</h1>
-        <p>1-876-553-2950 • Contact Us <br><br>
-          Mon to Sat: 9am-6pm (EST)<br>
-          Sun: Closed</p>
+      <div class="contact">
+          <h1>Get in Touch</h1>
+          <p>1-876-553-2950 • Contact Us <br>
+            Mon to Sat: 9am-6pm (EST)<br>
+            Sun: Closed</p>
       </div>
-    </footer>
+     </footer>
   </body>
 </html>
+
