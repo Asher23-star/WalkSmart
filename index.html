@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walk Smart - by Asher</title>
-    <link rel="stylesheet" href="style.css">
-   <style>
-     /* General styling */
-/* General styling */
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walk Smart - by Asher</title>
+  <style>
+    /* General styling */
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
@@ -102,10 +100,23 @@ footer h1 {
 
 /* Responsive Styling */
 @media (min-width: 768px) {
-  /* Keeps main content vertical on desktop */
   .main-content {
-    max-width: 800px;
-    margin: 0 auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 50px;
+    text-align: left;
+  }
+
+  .text-content {
+    flex: 1;
+    padding-right: 20px;
+    max-width: 50%;
+  }
+
+  .product-display {
+    flex: 1;
+    max-width: 50%;
+    margin: 0;
   }
 
   footer {
@@ -124,6 +135,12 @@ footer h1 {
     flex-direction: column;
   }
 
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   .product-display {
     width: 100%;
   }
@@ -133,52 +150,49 @@ footer h1 {
   }
 }
 
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html">
+      <img src="Walk Smart.png" alt="Logo" class="logo">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Product.html">Products</a>
+      <a href="Dashboard.html">Dashboard</a>
+      <a href="login.html" class="login">Login</a>
+    </nav>
+  </header>
 
-   </style>
-  </head>
- <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
-    <div class="header">
-      <a href="index.html"> 
-        <img src="Walk Smart.png" alt="Logo" class="logo"> 
-      </a> 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="Product.html">Products</a>
-        <a href="Dashboard.html">Dashboard</a>
-        <a href="login.html" class="login">Login</a>
-      </nav>
+  <div class="main-content">
+    <div class="text-content">
+      <h1>Step into Style with our Trendy Shoes!</h1>
+      <p class="subtitle"><b>2024 Walk Smart</b></p>
+      <p class="description">
+        Our collection includes a wide range of shoes for men, women, and children.
+      </p>
+      <a href="Product.html" class="shop-now">Shop Now</a>
     </div>
-    
-    <div class="main-content">
-        <h1> Step into Style with our Trendy Shoes!</h1>
-        <p class="subtitle">
-              <b>2024 Walk Smart</b>
-        </p>
-        <p class="description">
-              Our collection includes a wide range of shoes for men, women, and children.
-        </p>
-        <a href="Product.html" class="shop-now"> Shop Now</a>
-        <img src="display.png" class="product-display">
+    <img src="display.png" alt="Product Display" class="product-display">
+  </div>
+
+  <footer>
+    <div class="locations">
+      <h1>Store Locations</h1>
+      <ul>
+        <li>Walk Smart Mandeville</li>
+        <li>Walk Smart Kingston</li>
+        <li>Walk Smart Falmouth</li>
+        <li>Walk Smart Montego Bay</li>
+        <li>Walk Smart Spanish Town</li>
+      </ul>
     </div>
-    
-     <footer>
-      <div class="locations">
-        <h1>Store Locations</h1>
-        <ul>
-          <li>Walk Smart Mandeville</li>
-          <li>Walk Smart Kingston</li>
-          <li>Walk Smart Falmouth</li>
-          <li>Walk Smart Montego Bay</li>
-          <li>Walk Smart Spanish Town</li>
-        </ul>
-      </div>
-      <div class="contact">
-          <h1>Get in Touch</h1>
-          <p>1-876-553-2950 • Contact Us <br>
-            Mon to Sat: 9am-6pm (EST)<br>
-            Sun: Closed</p>
-      </div>
-     </footer>
-  </body>
+    <div class="contact">
+      <h1>Get in Touch</h1>
+      <p>1-876-553-2950 • Contact Us</p>
+      <p>Mon to Sat: 9am-6pm (EST)<br>Sun: Closed</p>
+    </div>
+  </footer>
+</body>
 </html>
-
