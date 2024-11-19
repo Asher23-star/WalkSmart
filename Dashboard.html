@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Dashboard.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.0.0/apexcharts.min.js"></script>
+        <title>Dashboard</title>
+    </head>
+
+    <body>
+        <div style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white;">
+            <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
+              <a href="index.html"> <img src="Logo.jpg" alt="Logo" width="150" height="120" style=" margin-right: 740px;"> </a> 
+               <a href="index.html" style="margin-right: 55px; text-decoration: none;color: white">Home</a>
+               <a href="Product.html" style="margin-right: 55px; text-decoration: none;color: white">Products</a>
+               <a href="aboutus.html" style="margin-right: 55px; text-decoration: none; color: white">About us</a>
+               <a href="login.html" style="margin-right: 50px; border-radius: 5px; text-decoration: none; color: white;">Dashboard</a>
+               <a href="login.html" style="margin-right: 50px; border-radius: 5px; text-decoration: none; color: white;">Logout</a>
+            </div>
+        <div>
+
+        <div class="beside"> <!--Structure-->
+
+            <div class="container">
+                <h1 class="container-content">Dashboard</h1>
+                <i class='bx bxs-dashboard'></i>
+                <ul class="list" id="list">
+                    <li>
+                        <button name="gender" class='bx bx-receipt' onclick="ShowInvoices()">All Incoices</button>
+                    </li>
+
+                    <li>
+                        <button name="age" class='bx bxs-receipt' onclick="GetUserInvoices()">User Invoices</button>
+                    </li>
+
+                    <li>
+                        <button name="gender" class='bx bx-dna' onclick="ShowUserFrequency()">Gender</button>
+                    </li>
+
+                    <li>
+                        <button name="age" class='bx bx-face' onclick="ShowUserFrequency()">Age</button>
+                    </li>
+                    
+                </ul>
+                
+                <button class="btn" onclick="history.back()">BACK</button>
+            </div>
+    
+            <div>
+
+                <!--Top-->
+                <div class="beside">
+                    <div  class="horizontal-container">
+                        <h2 style="text-align: center;">All Invoices</h2>
+                        <input type="text" placeholder="Search TRN" id="input">
+                        <iframe name="frm1" height="330px"></iframe>
+                    </div>
+    
+                    <div class="horizontal-container">
+                        <h2 style="text-align: center;">User Invoices</h2>
+                        <input type="text" placeholder="Search TRN" id="input">
+                        <iframe name="frm2" height="330px" src="https://www.utech.edu.jm"></iframe>
+                    </div>
+                </div> 
+    
+                <!--Bottom-->
+                <div class="beside">
+                    <div  class="horizontal-container">
+                        <h2 style="text-align: center;">Gender</h2>
+                        <div id="gender-chart"></div>
+                    </div> 
+    
+                    <div  class="horizontal-container">
+                        <h2 style="text-align: center;">Age</h2>
+                        <div id="age-chart"></div>
+                    </div> 
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+    <script>
+        var gchart = null;
+        var achart = null;
+
+        function ShowUserFrequency(type) 
+        {
+            var male = 20;
+            var female = 30;
+
+            /* Gender Chart */
+            var genderOptions = {
+                series: [{
+                    data: [male, female],
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: [
+                    "#c80808",
+                    "#06327d",
+                ],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        distributed: true,
+                        borderRadiusApplication: 'end',
+                        horizontal: false,
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                xaxis: {
+                    categories: ['Male', 'Female'],
+                }
+            };
+
+            /* Age Chart */
+            var ageOptions = {
+                series: [{
+                    data: [3, 10, 16, 20],
+                    name: "Age",
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                colors: [
+                    "#583cb3",
+                    "#c80808",
+                    "#ff6d00",
+                    "#06327d",
+                ],
+                plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        distributed: true,
+                        borderRadiusApplication: 'end',
+                        horizontal: false,
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                xaxis: {
+                    categories: ['18-25', '26-35', '36-50', '50+'],
+                }
+            };
+
+            document.getElementById('list').addEventListener('click', function (event) 
+            {
+                if (event.target.getAttribute('name') === 'gender') 
+                {
+                    if (gchart) /*Checks if there is a chart already rendered and destroys it to prevent multiple charts being created*/
+                    {
+                        gchart.destroy();
+                    }
+                    gchart = new ApexCharts(document.querySelector("#gender-chart"), genderOptions);
+                    gchart.render();
+                } 
+                else if (event.target.getAttribute('name') === 'age') 
+                {
+                    if (achart)/*Checks if there is a chart already rendered and destroys it to prevent multiple charts being created*/
+                    {
+                        achart.destroy();
+                    }
+                    achart = new ApexCharts(document.querySelector("#age-chart"), ageOptions);
+                    achart.render();
+                }
+            });
+        }
+
+        document.getElementById('input').addEventListener('keydown', function(event) 
+        {
+            if (event.key === 'Enter') 
+            {
+                alert('Enter key was pressed!');
+                // You can add more actions here, like submitting a form or processing input.
+            }
+        });
+
+        function ShowInvoices()
+        {
+
+        }
+
+        function GetUserInvoices()
+        {
+
+        }
+        
+    </script>
+        
+</html>

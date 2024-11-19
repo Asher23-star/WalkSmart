@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppina:wght@300;400;500;600;700;800;900&display=swap");
+
+body{
+    margin:1px;
+}
+.beside
+{
+    display: flex;
+    gap: 5px;
+}
+
+
+.container 
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+
+
+.container i 
+{
+    display: block; 
+    margin: 30px auto; 
+    font-size: 100px;
+}
+
+.list
+{
+    padding: 0;
+    margin-top: 40px;
+    list-style-type: none;
+}
+
+.list button
+{
+    padding: 20px;
+    font-size: 25px;
+    width: 300px;
+    border: none;
+    background-color: white;
+    text-align: left;
+
+}
+
+.list button:hover
+{
+    background-color: gainsboro;
+    cursor: pointer;
+}
+
+/*.container span
+{
+    display: relative; 
+    margin-left: 20px;
+    margin-top: 10px;
+    gap: 3.5;
+    font-size: 30px;
+    padding: 10px;
+    background-color: none;
+}
+
+.container span:hover
+{
+    cursor: pointer;
+    padding: 20px;
+    background-color: gainsboro;
+}*/
+
+
+.container-content 
+{
+    color: black;
+    border-radius: 5px;
+}
+
+.btn 
+{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    background-color: #c80808;
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    bottom: 10px;
+    margin-top: auto;
+    left: 10px;
+}
+
+.btn:hover
+{
+    background-color: #830404;
+    cursor: pointer;
+}
+
+.horizontal-container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 49.4vh;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+.horizontal-container input
+{
+    width: 20%;
+}
+.beside input
+{
+    border-radius: 5px;
+    height: 5%;
+}
+
+
+/*.input-box input
+{
+    width: 30%;
+}
+
+.input-box i
+{
+    position: absolute;
+    margin-top: 10px;
+    transform: translateY(-50%);
+    font-size: 15px;
+}*/
+
+
+
