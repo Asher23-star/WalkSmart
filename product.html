@@ -161,15 +161,6 @@ footer h1 {
   .header {
     flex-direction: column;
   }
-
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-.main-content h1 {
-  font-size: 40px;
-}
   .product-display {
     width: 100%;
   }
@@ -177,7 +168,14 @@ footer h1 {
   footer {
     flex-direction: column;
   }
-}
+  footer .locations, footer .contact {
+     text-align: center; 
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px; /* Adjust spacing between links */
+    align-items: center; /* Center the links */
+  }
 
 /* Style for the product page container */
 
