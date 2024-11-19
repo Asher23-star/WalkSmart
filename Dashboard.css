@@ -1,8 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppina:wght@300;400;500;600;700;800;900&display=swap");
 
-body{
-    margin:1px;
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  background-color: white;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #c80808;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+ 
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.Logout {
+  background-color: #ff3131;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .logo {
+     margin-left: 10px;
+   }
+}
+
+@media (max-width: 767px) {
+  .header {
+flex-direction: column;
+  }
+}
+
 .beside
 {
     display: flex;
