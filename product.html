@@ -158,7 +158,7 @@ footer h1 {
 }
 
 
-    @media (max-width: 767px) {
+@media (max-width: 767px) {
   .header {
     flex-direction: column;
   }
@@ -167,55 +167,102 @@ footer h1 {
     gap: 8px; /* Adjust spacing between links */
     align-items: center; /* Center the links */
   }
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-content h1 {
+    font-size: 40px;
+  }
+
+  .product-display {
+    width: 100%;
+  }
+
   .container {
     display: flex;
-    flex-direction: column; /* Stack products vertically */
-    align-items: center;
-    max-height: 80vh; /* Ensure multiple products are visible */
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    flex-direction: row; /* Arrange products in a row */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Add spacing between products */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    max-height: 100%; /* Keep container height consistent */
     padding: 10px;
   }
+
   .product {
-    width: 90%; /* Reduce product size to fit better */
-    margin-bottom: 20px; /* Space between products */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for distinction */
+    min-width: 250px; /* Ensure each product has a fixed width */
+    max-width: 250px; /* Maintain consistent sizing */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
+    text-align: center;
   }
+
   .product img {
     width: 100%;
     height: auto;
     margin-bottom: 10px;
   }
+
+  .sizes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* Add spacing between size buttons */
+  }
+
+  .size-button {
+    padding: 5px 10px; /* Make buttons smaller */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .add-to-cart,
+  .cancel-button {
+    padding: 8px 12px; /* Smaller buttons */
+    font-size: 14px; /* Adjust font size */
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .add-to-cart:hover,
+  .cancel-button:hover {
+    background-color: #0056b3;
+  }
+
   footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin-top: 20px;
   }
-  footer .locations, footer .contact {
-     text-align: center; 
-  }
+
   .exit-link,
   .cart-link,
   .checkout-link {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 15px;
-    font-size: 16px;
+    margin: 5px;
+    padding: 8px 12px; /* Smaller buttons */
+    font-size: 14px; /* Adjust font size */
     color: #fff;
     background-color: #007BFF;
     text-decoration: none;
     border-radius: 5px;
   }
+
   .exit-link:hover,
   .cart-link:hover,
   .checkout-link:hover {
     background-color: #0056b3;
   }
 }
+
 /* Style for the product page container */
 
 /* Style for the product page container */
