@@ -143,9 +143,11 @@ footer h1 {
     align-items: center;
     text-align: center;
   }
-.main-content h1 {
-  font-size: 40px;
-}
+
+  .main-content h1 {
+    font-size: 40px;
+  }
+
   .product-display {
     width: 100%;
   }
@@ -153,7 +155,21 @@ footer h1 {
   footer {
     flex-direction: column;
   }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Stack the links vertically */
+    gap: 8px; /* Adjust spacing between links */
+    align-items: center; /* Center the links */
+  }
+
+  .nav-links a {
+    margin: 0; /* Remove extra margin */
+    padding: 5px 10px; /* Adjust padding for compactness */
+    font-size: 16px; /* Optional: Adjust font size for readability */
+  }
 }
+
 
   </style>
 </head>
