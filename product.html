@@ -188,9 +188,9 @@ footer h1 {
     margin-top: 10px; /* Add spacing above */
   }
 
-  .exit-link,
-  .cart-link,
-  .checkout-link {
+  .exit,
+  .cart,
+  .checkout {
     display: inline-block;
     padding: 8px 12px; /* Smaller buttons */
     font-size: 14px; /* Adjust font size */
@@ -202,10 +202,15 @@ footer h1 {
     white-space: nowrap; /* Prevent buttons from wrapping text */
   }
 
-  .exit-link:hover,
-  .cart-link:hover,
-  .checkout-link:hover {
+  .exit:hover,
+  .cart:hover,
+  .checkout:hover {
     background-color: #0056b3;
+  }
+   .exit-link,
+  .cart-link,
+  .checkout-link {
+    display: none; /* Hide these links in small viewports */
   }
 
   body {
@@ -453,9 +458,9 @@ footer{
       <a href="login.html" class="logout">Log out</a>
     </nav>
        <div class="action-buttons">
-    <a href="index.html" class="exit-link">Exit</a>
-    <a href="#cart" class="cart-link">Cart</a>
-    <a href="#checkout" class="checkout-link">Checkout</a>
+    <a href="index.html" class="exit">Exit</a>
+    <a href="#cart" class="cart">Cart</a>
+    <a href="#checkout" class="checkout">Checkout</a>
   </div>
   </header>
     
