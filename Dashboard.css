@@ -19,6 +19,12 @@ body {
   height: auto;
  
 }
+.login {
+  background-color: #ff3131;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
 
 .nav-links {
   display: flex;
@@ -47,6 +53,18 @@ body {
 @media (max-width: 767px) {
   .header {
 flex-direction: column;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px; /* Adjust spacing between links */
+    align-items: center; /* Center the links */
+  }
+
+  .nav-links a {
+    margin: 0; /* Remove extra margin */
+    padding: 5px 10px; /* Adjust padding for compactness */
+    font-size: 16px; /* Optional: Adjust font size for readability */
+    
   }
 }
 
