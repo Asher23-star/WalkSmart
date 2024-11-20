@@ -242,6 +242,8 @@ footer h1 {
     border-radius: 8px;
     background-color: #f9f9f9;
     text-align: center;
+     position: relative; /* Reset any stacking context */
+    z-index: 1; /* Ensure it is below the header */
   }
 
   .product img {
@@ -269,13 +271,13 @@ footer h1 {
     margin: 5px;
     border: none;
     border-radius: 5px;
-    color: #c80808;
+    color: white;
     cursor: pointer;
   }
 
   .add-to-cart:hover,
   .cancel-button:hover {
-    background-color: #0056b3;
+    background-color: #da1f1f;
   }
 
   footer {
