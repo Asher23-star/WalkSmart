@@ -232,6 +232,8 @@ footer h1 {
     align-items: center;
      justify-content: center;
     margin: 0 auto;
+     position: relative; /* Reset any stacking context */
+    z-index: 1; /* Ensure it is below the header */
   }
 
   .product {
