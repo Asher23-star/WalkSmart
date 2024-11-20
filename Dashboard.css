@@ -19,13 +19,6 @@ body {
   height: auto;
  
 }
-.logout {
-  background-color: #ff3131;
-  padding: 10px 20px;
-  border-radius: 5px;
-  color: white;
-}
-
 .nav-links {
   display: flex;
   gap: 20px;
