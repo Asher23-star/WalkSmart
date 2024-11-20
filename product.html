@@ -232,8 +232,7 @@ footer h1 {
     align-items: center;
      justify-content: center;
     margin: 0 auto;
-     position: relative; /* Reset any stacking context */
-    z-index: 1; /* Ensure it is below the header */
+
   }
 
   .product {
@@ -244,8 +243,7 @@ footer h1 {
     border-radius: 8px;
     background-color: #f9f9f9;
     text-align: center;
-     position: relative; /* Reset any stacking context */
-    z-index: 1; /* Ensure it is below the header */
+
   }
 
   .product img {
@@ -253,7 +251,9 @@ footer h1 {
     height: auto;
     margin-bottom: 10px;
   }
-
+ .product:hover{
+    transform: none;
+ }
   .sizes {
     display: flex;
     flex-wrap: wrap;
