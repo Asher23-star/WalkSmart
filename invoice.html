@@ -6,7 +6,60 @@
     <title>Walk Smart - by Asher</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-    
+      body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #c80808;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+ 
+}
+      
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.logout{
+  background-color: #ff3131;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #c80808;
+  color: white;
+  text-align: center;
+}
+
+footer .locations, footer .contact {
+  margin: 10px 0;
+}
+
+footer h1 {
+  font-size: 24px;
+}
+
       .invoice-container {
         width: 80%;
         margin: 20px auto;
@@ -95,14 +148,23 @@
   </head>
 
     <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
-      <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
-        <a href="index.html"> <img src="Walk Smart.png" alt="Logo" width="150" height="130" style=" margin-right: 1100px;"> </a> 
-         <a href="index.html" style="margin-right: 55px; text-decoration: none;color: white">Home</a>
-         <a href="product.html" style="margin-right: 55px; text-decoration: none;color: white">Products</a>
-         <a href="aboutus.html" style="margin-right: 55px; text-decoration: none; color: white">About us</a>
-         <a href="login.html" style="margin-right: 55px; border-radius: 5px; padding: 14px 20px; text-decoration: none; color: white;">Login</a>
-  
-      </div>
+       <header class="header">
+          <a href="index.html">
+            <img src="Walk Smart.png" alt="Logo" class="logo">
+          </a>
+          <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="product.html">Products</a>
+            <i style="font-size: 25px; color: white; margin-left:0px;" class="fas">&#xf217;</i>
+            <a href="Dashboard.html">Dashboard</a>
+            <a href="login.html" class="logout">Log out</a>
+          </nav>
+          <div class="action-buttons">
+            <a href="index.html" class="exit">Exit</a>
+            <a href="#cart" class="cart">Cart</a>
+            <a href="#checkout" class="checkout">Checkout</a>
+          </div>
+        </header>
 
     <div class="invoice-container">
       <div class="invoice-header">
