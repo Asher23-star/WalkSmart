@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walk Smart</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      /* Style for the product page container */
+.container {
+ 
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: flex;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+.container2 { /*add to GITHUB*/
+
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: inline-flexbox;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+.container3 { /*add to GITHUB*/
+
+ background-color: grey;
+ color: white;
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: inline-flexbox;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+
+/* Style for each product section */
+.product {
+ width: 25%;
+ height: 20%;
+ margin-bottom: 20px;
+ margin-right: 20px;
+ padding: 10px;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ text-align: center;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover {
+ transform: scale(1.05);
+}
+
+.product img {
+ max-width: 100%;
+ height: auto;
+ border-radius: 8px;
+ width: 250px !important;
+ height: 250px !important;
+}
+
+.price {
+
+ margin: 10px 0;
+}
+
+.sizes {
+ margin: 10px 0;
+}
+
+.sizes button {
+ background-color: #f0f0f0;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ margin: 5px;
+ padding: 10px;
+ cursor: pointer;
+ transition: background-color 0.2s;
+}
+
+.sizes button:hover {
+ background-color: #ff3131;
+}
+
+.add-to-cart {
+ background-color: #ff3131;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.confirm {
+ width: 18%;
+ background-color: grey;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.COcancel {
+ width: 18%;
+ background-color: rgb(221, 61, 61);
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.redeem {  /*add to GITHUB*/
+ background-color: #ff3131;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 5px;
+ margin-top: 5px;
+ cursor: pointer;
+ font-size: 12px;
+ transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+ background-color: #da1f1f;
+}
+
+/* Style for the "exit- go to home" link */
+.exit-link {
+ position: fixed; 
+ top: 89%; 
+ left: 2.8%; 
+ border-radius: 10px;
+ color: white;
+ background-color: #ff3131;
+ padding: 20px 20px;
+ text-decoration: none;
+}
+.cart-link{
+ position: fixed; 
+ top: 89%;
+ right: 11%; 
+ background-color: #ff3131; 
+ color: white; 
+ padding: 20px 30px;
+ text-decoration: none;
+ border-radius: 10px;
+}
+
+.cart-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+
+.exit-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+
+/* Style for the "Check out" link */
+.checkout-link {
+ position: fixed; 
+ top: 89%;
+ right: 1%; 
+ background-color: #ff3131; 
+ color: white; 
+ padding: 20px 30px;
+ text-decoration: none;
+ border-radius: 10px;
+}
+.checkout-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+/* Style for the footer */
+footer{
+ background-color: #c80808;
+ padding: 40px;
+ color: white;
+ display: flex;  align-items: flex-start; 
+}
+@media (max-width: 1200px) {
+ .product {
+   width: 30%; /* Adjusts to 3 products per row on medium screens */
+ }
+}
+
+@media (max-width: 992px) {
+ .product {
+   width: 45%; /* Adjusts to 2 products per row on smaller screens */
+ }
+}
+
+@media (max-width: 768px) {
+ .product {
+   width: 100%; /* 1 product per row on small screens */
+   margin-right: 0;
+ }
+
+ /* Adjust the container to be full width on smaller screens */
+ .container {
+   width: 100%;
+ }
+
+ /* Adjust the position of fixed links for smaller screens */
+ .exit-link, .cart-link, .checkout-link {
+   position: relative;
+   top: auto;
+   left: auto;
+   right: auto;
+   margin: 10px;
+   width: auto;
+   padding: 10px 15px;
+ }
+}
+    </style>
+
+</head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
+    <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
+      <a href="index.html">
+        <img src="Images/Walk Smart.png" alt="Logo" width="150" height="120" style="margin-right: 750px;">
+      </a>
+      <a href="index.html" style="margin-right: 55px; text-decoration: none; color: white;">Home</a>
+      
+      <a href="Product.html" style="margin-right: 10px; text-decoration: none; color: white;">Products</a>
+      
+
+      &emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;<a href="cart.html"><i style="font-size: 25px; color: white; margin-right: 55px;" class="fas">&#xf217;</i></a>
+      
+      <a href="Dashboard.html" style="margin-right: 55px; text-decoration: none; color: white;">Dashboard</a>
+      <a href="login.html" style="margin-right: 50px; border-radius: 5px; padding: 14px 20px; text-decoration: none; color: white;">Log out</a>
+    </div>
+    <div class="container2">
+        <table align="center" width="90%" style="padding: 5px; height:90%">
+          
+        </table><br>
+        <center>Discount Code <input type="text" id="discode"></h3> <button class="redeem" onclick="discalc(grandtot)">Redeem</button></center>
+        <h4  id="GT" style="text-align: center;"></h4>
+
+        <center><button class="add-to-cart" onclick="removeAllFromCart()">Clear Cart</button><br>
+        <button class="add-to-cart" onclick="document.location='checkout.html'">Proceed to Checkout</button></center>
+    </div>
+    <footer>
+        <div>
+          <h1> Store Locations</h1>
+          <ul style="list-style-type: none;; text-align: left;">
+            <li> Walk Smart Mandeville</li><br>
+            <li> Walk Smart Kinsgton</li><br>
+            <li> Walk Smart Falmouth</li><br>
+            <li> Walk Smart Montego Bay</li><br>
+            <li> Walk Smart Spanish Town</li>
+          </ul>
+        </div>
+          <div style="margin-left: 900px;">
+            <h1>Get in Touch</h1>
+            <p>1-876-553-2950 • Contact Us <br><br>
+              Mon to Sat: 9am-6pm (EST)<br>
+              Sun: Closed</p>
+          </div>
+       </footer>
+
+
+       <script type="text/javascript">
+         
+    // Retrieving cart details and storing them within the cart object
+    let cart = JSON.parse(localStorage.getItem('custcart')) || [];
+     //using a constant to access the table within html 
+    const cartDisplay = document.querySelector('table');
+
+    //Initialization of variables to be used
+    let grandtot = 0;
+    let tax = 0;
+    let total = 0;
+    let dis = 0;
+    let finaldistot = grandtot;
+    let coltotal = [];
+
+    //function used to add each item to the cart and represent them on the page
+    function updateCartDisplay() {
+      grandtot = 0;
+      coltotal = [];
+        let cartTableRows = `
+        <tr align="center">
+                <td colspan="5"><h1>Shopping Cart</h1></td>
+            </tr>
+            <tr align="center">
+                <td>Product</td>
+                <td>Qty</td>
+                <td>Price</td>
+                <td>Tax (5%)</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td colspan="5"><hr color="black" style="width:100%"></td>
+            </tr>`;
+
+            //test to see if the cart is empty to then carry out calculations to be displayed
+        if (cart.length > 0) {
+            cart.forEach((item, x) => {
+                const tax = (item.price * 0.05).toFixed(2);
+                const total = (item.price * item.quantity + (item.quantity*parseFloat(tax))).toFixed(2);
+                grandtot+=parseFloat(total);
+                coltotal.push(parseFloat(total));
+                cartTableRows += `<tr align="center" style="font-size: small;">
+                        <td><img src="${item.image}" alt="No Image" height="100"><br><p>${item.name}</p><a onclick="removeitem(${x})" style="color: red;cursor: pointer;">Remove</a></td>
+                        <td><button onclick="changeQuan(${x}, -1)" style="cursor: pointer; border:none;background-color: white;">
+                                <img height="14px" src="minus.png"></button>
+                            <button onclick="changeQuan(${x}, 1)" style="cursor: pointer; border:none;background-color: white">
+                                <img height="14px" src="plus.png"></button><br>${item.quantity}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>$${tax}</td>
+                        <td>$${total}</td>
+                    </tr>
+                    <tr><td colspan="5"><hr color="black" style="width:100%"></td></tr>`;
+                    
+            });
+        } else {
+            cartTableRows += `<tr><td colspan="5" align="center">Your cart is empty.</td></tr>`;
+        }
+        cartDisplay.innerHTML = cartTableRows;
+
+        //Using ID to represent calculated grand total and collecting values to prevent more calculations on future pages
+        document.getElementById("GT").textContent=`Grandtotal: $${grandtot.toFixed(2)}`;
+        localStorage.setItem('collectedtot',JSON.stringify(coltotal));
+        
+        finaldistot = grandtot-dis;
+        let tocheckout = [grandtot, dis, finaldistot];
+        localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) 
+    }
+    
+    //function used to change the quantity of products within the cart through the add and minus images then updating the cart in local storage
+    function changeQuan(x, change) {
+        cart[x].quantity += change;
+        if (cart[x].quantity <= 0) //test to remove an item if quantity falls to 0
+        {
+            cart.splice(x, 1);
+        }
+        localStorage.setItem('custcart', JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    //function used to clear the cart upon button click and update the localstorage
+    function removeAllFromCart() {
+        let tempcart = JSON.parse(localStorage.getItem('custcart'))||[];
+        tempcart=[];
+        localStorage.setItem('custcart',JSON.stringify(tempcart));
+        location.reload();
+    }
+
+     //function used to remove an item from the cart upon click and update the localstorage
+    function removeitem(pindex) {
+      let tempcart = JSON.parse(localStorage.getItem('custcart'))||[];
+      tempcart.splice(pindex,1);
+      localStorage.setItem('custcart',JSON.stringify(tempcart));
+      location.reload();
+    }
+
+    //function used to calculate the discount if correct code is entered and reflect it in values
+    function discalc() {
+      var testcode = document.getElementById("discode").value;
+      if (grandtot === 0) 
+      {
+        window.alert("Your cart is empty. Add items to apply a discount.");
+        return;
+      }
+      let dis = 0;
+      if (testcode === "HIGHIQ")
+    {
+      dis = grandtot * 0.15;
+      window.alert("You've received a 15% discount!");
+    }
+    else if (testcode === "MerryXmas!")
+    {
+      dis = grandtot * 0.1;
+      window.alert("You've received a 10% discount!");
+    }
+    else
+    {
+      window.alert("The code you entered is invalid.");
+    }
+    finaldistot = grandtot-dis;
+    document.getElementById("GT").innerHTML=`Discount: -$${dis.toFixed(2)}<br>Grandtotal: $${finaldistot.toFixed(2)}`;
+    let tocheckout = [grandtot, dis, finaldistot]; 
+    localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) //storing of important figures to avoid redundant calculation on future pages
+    }
+    
+    updateCartDisplay(); //call of update cart display function
+    
+       </script>
+</body>
+</html>

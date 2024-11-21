@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Walk Smart</title>
+        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+           
+.container {
+ 
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: flex;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+.container2 { 
+
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: inline-flexbox;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+.container3 { 
+
+ background-color: grey;
+ color: white;
+ vertical-align: top;
+ width: 70%; 
+ max-width: 1000px; 
+ margin: 0 auto; 
+ padding: 20px;
+ display: inline-flexbox;
+ flex-wrap: wrap; 
+ justify-content: center;
+ border-radius: 10px;
+}
+
+
+/* Style for each product section */
+.product {
+ width: 25%;
+ height: 20%;
+ margin-bottom: 20px;
+ margin-right: 20px;
+ padding: 10px;
+ border: 1px solid #ddd;
+ border-radius: 8px;
+ text-align: center;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover {
+ transform: scale(1.05);
+}
+
+.product img {
+ max-width: 100%;
+ height: auto;
+ border-radius: 8px;
+ width: 250px !important;
+ height: 250px !important;
+}
+
+.price {
+
+ margin: 10px 0;
+}
+
+.sizes {
+ margin: 10px 0;
+}
+
+.sizes button {
+ background-color: #f0f0f0;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ margin: 5px;
+ padding: 10px;
+ cursor: pointer;
+ transition: background-color 0.2s;
+}
+
+.sizes button:hover {
+ background-color: #ff3131;
+}
+
+.add-to-cart {
+ background-color: #ff3131;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.confirm {
+ width: 18%;
+ background-color: grey;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.COcancel {
+ width: 18%;
+ background-color: rgb(221, 61, 61);
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 15px;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.2s;
+}
+
+.redeem {  /*add to GITHUB*/
+ background-color: #ff3131;
+ color: white;
+ border: none;
+ border-radius: 10px;
+ padding: 10px 5px;
+ margin-top: 5px;
+ cursor: pointer;
+ font-size: 12px;
+ transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+ background-color: #da1f1f;
+}
+
+/* Style for the "exit- go to home" link */
+.exit-link {
+ position: fixed; 
+ top: 89%; 
+ left: 2.8%; 
+ border-radius: 10px;
+ color: white;
+ background-color: #ff3131;
+ padding: 20px 20px;
+ text-decoration: none;
+}
+.cart-link{
+ position: fixed; 
+ top: 89%;
+ right: 11%; 
+ background-color: #ff3131; 
+ color: white; 
+ padding: 20px 30px;
+ text-decoration: none;
+ border-radius: 10px;
+}
+
+.cart-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+
+.exit-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+
+/* Style for the "Check out" link */
+.checkout-link {
+ position: fixed; 
+ top: 89%;
+ right: 1%; 
+ background-color: #ff3131; 
+ color: white; 
+ padding: 20px 30px;
+ text-decoration: none;
+ border-radius: 10px;
+}
+.checkout-link:hover {
+ background-color: #da1f1f;
+ transform: scale(1.05);
+}
+/* Style for the footer */
+footer{
+ background-color: #c80808;
+ padding: 40px;
+ color: white;
+ display: flex;  align-items: flex-start; 
+}
+@media (max-width: 1200px) {
+ .product {
+   width: 30%; /* Adjusts to 3 products per row on medium screens */
+ }
+}
+
+@media (max-width: 992px) {
+ .product {
+   width: 45%; /* Adjusts to 2 products per row on smaller screens */
+ }
+}
+
+@media (max-width: 768px) {
+ .product {
+   width: 100%; /* 1 product per row on small screens */
+   margin-right: 0;
+ }
+
+ /* Adjust the container to be full width on smaller screens */
+ .container {
+   width: 100%;
+ }
+
+ /* Adjust the position of fixed links for smaller screens */
+ .exit-link, .cart-link, .checkout-link {
+   position: relative;
+   top: auto;
+   left: auto;
+   right: auto;
+   margin: 10px;
+   width: auto;
+   padding: 10px 15px;
+ }
+} 
+        </style>
+    </head>
+<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
+    <div style="justify-content: center; display: flex; align-items: center; padding: 5px; background-color: #c80808; border-radius: 5px;">
+        <a href="index.html">
+          <img src="Images/Walk Smart.png" alt="Logo" width="150" height="120" style="margin-right: 750px;">
+        </a>
+        <a href="index.html" style="margin-right: 55px; text-decoration: none; color: white;">Home</a>
+        
+        <a href="Product.html" style="margin-right: 10px; text-decoration: none; color: white;">Products</a>
+        
+  
+        &emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;<a href="cart.html"><i style="font-size: 25px; color: white; margin-right: 55px;" class="fas">&#xf217;</i></a>
+        
+        <a href="Dashboard.html" style="margin-right: 55px; text-decoration: none; color: white;">Dashboard</a>
+        <a href="login.html" style="margin-right: 50px; border-radius: 5px; padding: 14px 20px; text-decoration: none; color: white;">Log out</a>
+      </div>
+      <div class="container2">
+      <table align="center" width="90%" style="padding: 5px; height:90%">
+        
+      </table>
+      <h4  id="pb4dis" style="text-align: right;"></h4>
+      <h4  id="dis" style="text-align: right;"></h4>
+      <h4  id="totaftdis" style="text-align: right;"></h4>
+      <hr color="black" style="width:100%">
+      </div>
+      <div class="container2">
+        <h2>Shipping Details</h2>
+        <fieldset style="border: none; padding: 0; margin: 0;">
+            <legend>Name</legend>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div>
+                    <br>
+                    <input id="fname" type="text" placeholder="First" required>
+                </div>
+                <div>
+                    <br>
+                    <input id="mname" type="text" placeholder="Middle">
+                </div>
+                <div>
+                    <br>
+                    <input id="lname" type="text" placeholder="Last" required>
+                </div>
+                </div>
+        </fieldset>
+                <br><br>
+                <fieldset style="border: none; padding: 0; margin: 0;">
+                    <legend>Address</legend>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <div>
+                           <br>
+                            <input id="stnum" type="number" placeholder="St Number" required>
+                        </div>
+                        <div>
+                            <br>
+                            <input id="stname" type="text" placeholder="St Name" required>
+                        </div>
+                        <div>
+                            <br>
+                            <input id="city" type="text" placeholder="City" required>
+                        </div>
+                        <div>
+                            <br>
+                            <input id="state" type="text" placeholder="State" required>
+                        </div>
+                    </div>
+        </fieldset><br>
+            <fieldset style="border: none; padding: 0; margin: 0;">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <div>
+                           <br>
+                           Shipping Method &emsp13;<select name="shmet" id="shipmeth" required>
+                            <option selected></option>
+                            <option>by car</option>
+                            <option>by sea</option>
+                            <option>by air</option>
+                        </div>
+                        <div>
+                            <br>
+                            Payment Method &emsp13;<select name="paymeth" id="methpay" required>
+                                <option selected></option>
+                                <option>PayPal</option>
+                                <option>Apple Pay</option>
+                                <option>Cash App</option>
+                                <option>MasterCard/Visa</option>
+                        </div>
+                    </div>
+        </fieldset>
+        <div style="text-align:right;">
+        <button onclick="submitshipdata();" class="confirm">Confirm </button>
+        <button onclick="document.location='cart.html'" class="COcancel">Cancel</button>
+        </div>
+      </div>
+      <footer>
+        <div>
+          <h1> Store Locations</h1>
+          <ul style="list-style-type: none;; text-align: left;">
+            <li> Walk Smart Mandeville</li><br>
+            <li> Walk Smart Kinsgton</li><br>
+            <li> Walk Smart Falmouth</li><br>
+            <li> Walk Smart Montego Bay</li><br>
+            <li> Walk Smart Spanish Town</li>
+          </ul>
+        </div>
+          <div style="margin-left: 900px;">
+            <h1>Get in Touch</h1>
+            <p>1-876-553-2950 • Contact Us <br><br>
+              Mon to Sat: 9am-6pm (EST)<br>
+              Sun: Closed</p>
+          </div>
+       </footer>
+
+       <script type="text/javascript">
+
+        //Retrieval of necessary information to be displayed from cart page
+        let cart = JSON.parse(localStorage.getItem('custcart')) || [];
+        let values = JSON.parse(localStorage.getItem('valuesforco'))
+        let coltot = JSON.parse(localStorage.getItem('collectedtot'))
+        
+        //using a constant to access the table within html 
+        const codisplay = document.querySelector('table');
+
+        //function used to add each item from the cart to the checkout page
+        function updateco() {
+            let cotable= 
+            `
+                <tr>
+                    <td colspan="5"><h2>Items</h2></td>
+                </tr>
+                <br>
+            `;
+        // test checking if the cart is empty
+            if (cart.length>0) 
+            {
+                cart.forEach((item, x) => { //looping through each cart item to represent them on checkout page
+                    cotable+=
+                    `
+                    
+                    <tr style="font-size: small;display: flex-wrap;">
+                        <td>
+                            <div style="background-color: #Ff6961; color: black; padding: 10px; border-radius: 5px;display: inline-table;width:65%;">
+                            <img src="${item.image}" alt="No Image" height="50">&emsp14;<p>${item.name}</p><p>Quantity: ${item.quantity}&emsp14;&emsp14;Size: ${item.size}</p></div></td>
+                        <td colspan="50"></td>
+                        <td style="text-align:right;"><b>Cost: $${coltot[x]}</b></td>
+                    </tr>
+                    `
+                });
+            } else {
+            cotable += `<tr><td colspan="5" align="center">Your cart is empty.</td></tr>`;
+        }
+            //Utilizing values retrieved from localstorage to then represent
+            codisplay.innerHTML = cotable;
+            document.getElementById("pb4dis").innerHTML=`Total: $${(values[0]).toFixed(2)}`
+            document.getElementById("dis").innerHTML=`Discount: -$${(values[1]).toFixed(2)}`
+            document.getElementById("totaftdis").innerHTML=`Final Total: $${(values[2]).toFixed(2)}`
+
+        }
+        //function used to submit the entered shipping details to local storage to be accessed by invoice page
+        function submitshipdata()
+        {
+            let choutinfo = [
+                {firstname: document.getElementById("fname").value,
+                    middlename: document.getElementById("mname").value,
+                    lastname: document.getElementById("lname").value,
+                    stnum: document.getElementById("stnum").value,
+                    stname: document.getElementById("stname").value,
+                    city: document.getElementById("city").value,
+                    state: document.getElementById("state").value,
+                    shipmethod: document.getElementById("shipmeth").value,
+                    paymethod: document.getElementById("methpay").value
+                }
+            ];
+
+            localStorage.setItem('choutinfo',JSON.stringify(choutinfo));
+            document.location='invoice.html'
+        }
+        //call of update checkout function
+        updateco();
+       </script>
+</body>
+</html>
