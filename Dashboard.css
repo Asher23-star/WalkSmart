@@ -6,7 +6,8 @@ body {
   background-color: white;
 }
 
-.header {
+.header 
+{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +20,7 @@ body {
   height: auto;
  
 }
+
 .nav-links {
   display: flex;
   gap: 20px;
@@ -37,30 +39,6 @@ body {
   color: white;
 }
 
-
-@media (min-width: 768px) {
-  .logo {
-     margin-left: 10px;
-   }
-}
-
-@media (max-width: 767px) {
-  .header {
-flex-direction: column;
-  }
-  .nav-links {
-    display: flex;
-    gap: 8px; /* Adjust spacing between links */
-    align-items: center; /* Center the links */
-  }
-
-  .nav-links a {
-    margin: 0; /* Remove extra margin */
-    padding: 5px 10px; /* Adjust padding for compactness */
-    font-size: 16px; /* Optional: Adjust font size for readability */
-    
-  }
-}
 
 .beside
 {
@@ -112,25 +90,6 @@ flex-direction: column;
     cursor: pointer;
 }
 
-/*.container span
-{
-    display: relative; 
-    margin-left: 20px;
-    margin-top: 10px;
-    gap: 3.5;
-    font-size: 30px;
-    padding: 10px;
-    background-color: none;
-}
-
-.container span:hover
-{
-    cursor: pointer;
-    padding: 20px;
-    background-color: gainsboro;
-}*/
-
-
 .container-content 
 {
     color: black;
@@ -139,20 +98,21 @@ flex-direction: column;
 
 .btn 
 {
-    position: fixed;
-    top: 90%; 
-    left: 2.8%; 
+    position: relative;
     width: 100px;
-    background-color: #ff3131;
+    height: 50px;
+    background-color: #c80808;
     color: white; 
     border: none; 
-    border-radius: 10px;
-    padding:15px 20px;
+    border-radius: 5px;
+    bottom: 10px;
+    margin-top: auto;
+    left: 10px;
 }
 
 .btn:hover
 {
-    background-color: #da1f1f;
+    background-color: #830404;
     cursor: pointer;
 }
 
@@ -175,19 +135,286 @@ flex-direction: column;
     height: 5%;
 }
 
-
-/*.input-box input
+@media (min-width: 500px)
 {
-    width: 30%;
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin: 0;
+        background-color: white;
+      }
+      
+      .header 
+      {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #c80808;
+      }
+      
+      .logo {
+        width: 150px;
+        height: auto;
+       
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+      }
+      
+      .Logout {
+        background-color: #ff3131;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+      }
+      
+      
+      .beside
+      {
+          display: flex;
+          gap: 5px;
+      }
+      
+      
+      .container 
+      {
+          display: flex;
+          flex-direction: column;
+          width: 300px;
+          height: 100vh;
+          margin-top: 10px;
+          border: 2px solid black;
+      }
+      
+      
+      
+      .container i 
+      {
+          display: block; 
+          margin: 30px auto; 
+          font-size: 100px;
+      }
+      
+      .list
+      {
+          padding: 0;
+          margin-top: 40px;
+          list-style-type: none;
+      }
+      
+      .list button
+      {
+          padding: 20px;
+          font-size: 25px;
+          width: 300px;
+          border: none;
+          background-color: white;
+          text-align: left;
+      
+      }
+      
+      .list button:hover
+      {
+          background-color: gainsboro;
+          cursor: pointer;
+      }
+      
+      .container-content 
+      {
+          color: black;
+          border-radius: 5px;
+      }
+      
+      .btn 
+      {
+          position: relative;
+          width: 100px;
+          height: 50px;
+          background-color: #c80808;
+          color: white; 
+          border: none; 
+          border-radius: 5px;
+          bottom: 10px;
+          margin-top: auto;
+          left: 10px;
+      }
+      
+      .btn:hover
+      {
+          background-color: #830404;
+          cursor: pointer;
+      }
+      
+      .horizontal-container {
+          display: flex;
+          flex-direction: column;
+          width: 600px;
+          height: 49.4vh;
+          margin-top: 10px;
+          border: 2px solid black;
+      }
+      
+      .horizontal-container input
+      {
+          width: 20%;
+      }
+      .beside input
+      {
+          border-radius: 5px;
+          height: 5%;
+      }
+      
 }
-
-.input-box i
+  
+@media (max-width: 426px)
 {
-    position: absolute;
-    margin-top: 10px;
-    transform: translateY(-50%);
-    font-size: 15px;
-}*/
+    .logo {
+        margin-left: 20px;
+    }
+
+    .header 
+    {
+        flex-direction: column;
+    }
+
+    .nav-links 
+    {
+        display: flex;
+        gap: 8px; 
+        align-items: center; 
+    }
+    
+    .nav-links a 
+    {
+        margin: 0; 
+        padding: 5px 10px; 
+        font-size: 16px; 
+    }
+
+    .Logout 
+    {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    /* Container */
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 87%;
+        height: 30vh;
+        margin-top: 20px;
+        border: 2px solid black;
+        padding: 20px;
+    }
+
+    .container h1
+    {
+        text-align: center;
+    }
+
+    #dashboard
+    {
+        display: none;
+    }
+
+    .container-content {
+        font-size: 24px;
+    }
+    
+    .list{
+        margin-top: 10px;
+    }
+
+    /* Buttons inside the list */
+    .list button {
+        padding: 10px;
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .list button:hover {
+        background-color: gainsboro;
+        cursor: pointer;
+    }
+
+    .btn {
+        position: fixed; /* Make the button fixed */
+        bottom: 20px;    /* Position it 20px from the bottom */
+        left: 10px;      /* Position it 10px from the left side */
+        width: 120px;
+        height: 50px;
+        background-color: #c80808;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    
+    .btn:hover {
+        background-color: #830404;
+        cursor: pointer;
+    }
 
 
+    
+
+    /* Horizontal container */
+    .horizontal-container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-top: 10px;
+        border: 2px solid black;
+        padding: 15px;
+    }
+
+    .title
+    {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    /* Horizontal container input */
+    .horizontal-container input {
+        width: 30%;
+        padding: 10px;
+        height: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust the chart divs */
+    #gender-chart, #age-chart {
+        width: 100%;
+        height: 230px;
+    }
+
+    /* Adjust the flex layout for the beside class */
+    .beside {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    /* Style the iframe elements */
+    iframe {
+        width: 100%;
+        border: 2px solid #ddd;
+    }
+}
 
