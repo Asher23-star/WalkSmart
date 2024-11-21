@@ -671,19 +671,18 @@
       { name: "2024 Walk Smart casual sport shoes 200", price: 79.99, stock: 50 },
       { name: "2024 Walk Smart casual sport shoes 3000", price: 99.99, stock: 50 },
     ];
-
       const cart = [];
       localStorage.setItem('AllProducts',JSON.stringify(AllProducts));
-
+      
       let selectedSize = null;
 
       // Function to handle size selection
-@@ -682,44 +683,63 @@ <h1>Get in Touch</h1>
+@@ -682,68 +683,87 @@
           document.querySelectorAll('.size-button').forEach(button => button.classList.remove('active'));
           event.target.classList.add('active');
       }
-
-
+      
+      
 
       // Function to add product to cart
       function addToCart(event) {
@@ -713,7 +712,7 @@
                 localStorage.setItem('custcart', JSON.stringify(tempcart));
                 alert(productName + " added to cart in size " + selectedSize);
               }
-
+              
 
               cancelButton.classList.add('show');
               cancelButton.addEventListener('click', () => removeFromCart(cartItem, productElement));
@@ -725,7 +724,6 @@
               alert("Please select a size before adding to cart.");
           }
       }
-
       function removeFromCart(cartItem, productElement) {
           const itemIndex = cart.findIndex(item => item.name === cartItem.name && item.size === cartItem.size);
       // Function to remove product from cart
@@ -736,7 +734,7 @@
           if (itemIndex > -1) {
               cart.splice(itemIndex, 1);
               alert(cartItem.name + " will be removed from cart.");
-
+            
             tempcart.splice(itemIndex,1);
             localStorage.setItem('custcart', JSON.stringify(tempcart));
             alert(productName + " will be removed from cart.");
@@ -745,18 +743,38 @@
           const cancelButton = productElement.querySelector('.cancel-button');
           cancelButton.classList.remove('show');
       }
-
       
       document.querySelectorAll('.size-button').forEach(button => button.addEventListener('click', selectSize));
       document.querySelectorAll('.add-to-cart').forEach(button => button.addEventListener('click', addToCart));
-
       document.querySelector('.checkout-link').addEventListener('click', function () {
           localStorage.setItem('cart', JSON.stringify(cart));  // Store cart in localStorage
       });
-
-
+      
+      
 
       window.addEventListener("scroll", function() {
     const footer = document.querySelector("footer");
+    const exitLink = document.querySelector(".exit-link");
+    const checkoutLink = document.querySelector(".checkout-link");
+    const cartLink = document.querySelector(".cart-link");
+
+    const footerPosition = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    // Check if the footer is in view
+    if (footerPosition <= windowHeight) {
+        // Hide exit and checkout links if the footer is visible
+        exitLink.style.display = "none";
+        checkoutLink.style.display = "none";
+        cartLink.style.display = "none";
+    } else {
+        // Show exit and checkout links if the footer is not visible
+        exitLink.style.display = "inline";
+        checkoutLink.style.display = "inline";
+        cartLink.style.display = "inline";
+    }
+});
+
+  </script>
 </body>
 </html>
