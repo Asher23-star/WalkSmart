@@ -19,19 +19,19 @@
               <a href="index.html">Home</a>
               <a href="product.html">Products</a>
               <a href="Dashboard.html">Dashboard</a>
-              <a href="login.html" class="logout">Log out</a>
+              <a href="login.html" class="login">Logout</a>
             </nav>
         </header>
         <div>
-   
+
         <div class="beside"> <!--Structure-->
 
             <div class="container">
                 <h1 class="container-content">Dashboard</h1>
-                <i class='bx bxs-dashboard'></i>
+                <i class='bx bxs-dashboard' id="dashboard"></i>
                 <ul class="list" id="list">
                     <li>
-                        <button name="gender" class='bx bx-receipt' onclick="ShowInvoices()">All Incoices</button>
+                        <button name="gender" class='bx bx-receipt' onclick="ShowInvoices()">All Invoices</button>
                     </li>
 
                     <li>
@@ -56,13 +56,13 @@
                 <!--Top-->
                 <div class="beside">
                     <div  class="horizontal-container">
-                        <h2 style="text-align: center;">All Invoices</h2>
+                        <h2 style="text-align: center;" class="title">All Invoices</h2>
                         <input type="text" placeholder="Search TRN" id="input">
                         <iframe name="frm1" height="330px"></iframe>
                     </div>
     
                     <div class="horizontal-container">
-                        <h2 style="text-align: center;">User Invoices</h2>
+                        <h2 style="text-align: center;" class="title">User Invoices</h2>
                         <input type="text" placeholder="Search TRN" id="input">
                         <iframe name="frm2" height="330px" src="https://www.utech.edu.jm"></iframe>
                     </div>
@@ -71,20 +71,19 @@
                 <!--Bottom-->
                 <div class="beside">
                     <div  class="horizontal-container">
-                        <h2 style="text-align: center;">Gender</h2>
+                        <h2 style="text-align: center;" class="title">Gender</h2>
                         <div id="gender-chart"></div>
                     </div> 
     
                     <div  class="horizontal-container">
-                        <h2 style="text-align: center;">Age</h2>
+                        <h2 style="text-align: center;" class="title">Age</h2>
                         <div id="age-chart"></div>
                     </div> 
                 </div>
 
             </div>
-
         </div>
-     
+
     </body>
 
     <script>
