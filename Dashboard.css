@@ -38,7 +38,7 @@ body {
 }
 .container-wrapper {
   width: 80%; /* Adjust to match the desired width */
-  max-width: 1200px; /* Optional: for responsiveness */
+  
   margin: 0 auto; /* Center the content */
 }
 
