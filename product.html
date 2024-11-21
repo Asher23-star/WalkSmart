@@ -660,20 +660,21 @@ footer{
     </div>
   </footer>
 
-     <script>
-        const products = [
-      { name: "2024 Walk Smart casual sport shoes", price: 79.99 },
-      { name: "Lightweight Athletic Running shoes", price: 99.99 },
-      { name: "Athletic Mesh Fashion Sneakers", price: 89.99 },
-      { name: "Men's Outdoor Fashionable Casual Sport Running Shoes", price: 79.99 },
-      { name: "2024 Walksmart 208", price: 100.99 },
-      { name: "2024 Walksmart 230", price: 100.99 },
-      { name: "2024 Walksmart 2010", price: 100.99},
-      { name: "2024 Walk Smart casual sport shoes 200", price: 79.99 },
-      { name: "2024 Walk Smart casual sport shoes 3000", price: 99.99 },
+    <script>
+      //storing of product details within an object to be stored in local storage
+        const AllProducts = [
+      { name: "2024 Walk Smart casual sport shoes", price: 79.99, stock: 50},
+      { name: "Lightweight Athletic Running shoes", price: 99.99, stock: 50 },
+      { name: "Athletic Mesh Fashion Sneakers", price: 89.99, stock: 50 },
+      { name: "Men's Outdoor Fashionable Casual Sport Running Shoes", price: 79.99, stock: 50 },
+      { name: "2024 Walksmart 208", price: 100.99, stock: 50 },
+      { name: "2024 Walksmart 230", price: 100.99, stock: 50 },
+      { name: "2024 Walksmart 2010", price: 100.99, stock: 50},
+      { name: "2024 Walk Smart casual sport shoes 200", price: 79.99, stock: 50 },
+      { name: "2024 Walk Smart casual sport shoes 3000", price: 99.99, stock: 50 },
     ];
-
-      const cart = [];
+      localStorage.setItem('AllProducts',JSON.stringify(AllProducts));
+      
       let selectedSize = null;
 
       // Function to handle size selection
@@ -682,44 +683,63 @@ footer{
           document.querySelectorAll('.size-button').forEach(button => button.classList.remove('active'));
           event.target.classList.add('active');
       }
+      
+      
 
       // Function to add product to cart
       function addToCart(event) {
+        const tempcart = JSON.parse(localStorage.getItem('custcart'))||[];
           const productElement = event.target.closest('.product');
           const productName = productElement.querySelector('p').textContent;
           const price = parseFloat(productElement.querySelector('.price').textContent.replace('$', ''));
-          const image = productElement.querySelector('.product_img').getAttribute('src');
+          const itemimage = productElement.querySelector('img').currentSrc;
           const cancelButton = productElement.querySelector('.cancel-button');
 
           if (selectedSize) {
-              const cartItem = { name: productName, price: price, size: selectedSize, image: image };
-              cart.push(cartItem);
-              alert(productName + " added to cart in size " + selectedSize);
+              const cartItem = { name: productName, price: price, size: selectedSize, image: itemimage, quantity: 1};
+              var test = tempcart.findIndex(item=> item.name === productName && item.size === selectedSize);
+              if (test >-1)
+              {
+                tempcart[test].quantity++;
+                localStorage.setItem('custcart', JSON.stringify(tempcart));
+                alert(productName + " added to cart in size " + selectedSize);
+              }
+              else
+              {
+                tempcart.push(cartItem);
+                localStorage.setItem('custcart', JSON.stringify(tempcart));
+                alert(productName + " added to cart in size " + selectedSize);
+              }
+              
 
               cancelButton.classList.add('show');
-              cancelButton.addEventListener('click', () => removeFromCart(cartItem, productElement));
-          } else {
+              cancelButton.addEventListener('click', () => removeFromCart(productElement));
+          } 
+          else 
+          {
               alert("Please select a size before adding to cart.");
           }
       }
-
-      function removeFromCart(cartItem, productElement) {
-          const itemIndex = cart.findIndex(item => item.name === cartItem.name && item.size === cartItem.size);
+      // Function to remove product from cart
+      function removeFromCart(productElement) {
+          const tempcart = JSON.parse(localStorage.getItem('custcart'))||[];
+          const productName = productElement.querySelector('p').textContent;
+          const itemIndex = tempcart.findIndex(item => item.name === productName); 
           if (itemIndex > -1) {
-              cart.splice(itemIndex, 1);
-              alert(cartItem.name + " will be removed from cart.");
+            
+            tempcart.splice(itemIndex,1);
+            localStorage.setItem('custcart', JSON.stringify(tempcart));
+            alert(productName + " will be removed from cart.");
           }
 
           const cancelButton = productElement.querySelector('.cancel-button');
           cancelButton.classList.remove('show');
       }
-
+      
       document.querySelectorAll('.size-button').forEach(button => button.addEventListener('click', selectSize));
       document.querySelectorAll('.add-to-cart').forEach(button => button.addEventListener('click', addToCart));
-
-      document.querySelector('.checkout-link').addEventListener('click', function () {
-          localStorage.setItem('cart', JSON.stringify(cart));  // Store cart in localStorage
-      });
+      
+      
 
       window.addEventListener("scroll", function() {
     const footer = document.querySelector("footer");
