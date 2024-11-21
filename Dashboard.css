@@ -36,7 +36,19 @@ body {
   border-radius: 5px;
   color: white;
 }
+.container-wrapper {
+  width: 80%; /* Adjust to match the desired width */
+  max-width: 1200px; /* Optional: for responsiveness */
+  margin: 0 auto; /* Center the content */
+}
 
+.header {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+}
 @media (min-width: 768px) {
   .logo {
      margin-left: 10px;
