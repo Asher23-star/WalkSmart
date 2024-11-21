@@ -36,11 +36,6 @@ body {
   border-radius: 5px;
   color: white;
 }
-.container-wrapper {
-  width: 100%; /* Adjust to match the desired width */
-  
-  margin: 0 auto; /* Center the content */
-}
 
 
 @media (min-width: 768px) {
