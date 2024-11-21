@@ -114,6 +114,7 @@ body {
 {
     background-color: #830404;
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .horizontal-container {
