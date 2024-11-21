@@ -9,30 +9,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      body {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          margin: 0;
+          background-color: white;
+        }
+
       .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #c80808;
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #c80808;
+      }
 
-.logo {
-  width: 150px;
-  height: auto;
- 
-}
+      .logo {
+        width: 150px;
+        height: auto;
+      }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
+      .nav-links {
+        display: flex;
+        gap: 20px;
+      }
 
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-}
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+      }
 
  footer{
       background-color: #c80808;
@@ -247,6 +252,7 @@ footer{
  color: white;
  display: flex;  align-items: flex-start; 
 }
+      
 @media (max-width: 1200px) {
  .product {
    width: 30%; /* Adjusts to 3 products per row on medium screens */
@@ -294,12 +300,12 @@ footer{
       }
     }
 
-}
+
      
     </style>
 
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
+<body>
   <header class="header">
     <a href="index.html">
       <img src="Walk Smart.png" alt="Logo" class="logo">
