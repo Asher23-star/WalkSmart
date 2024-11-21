@@ -42,13 +42,7 @@ body {
   margin: 0 auto; /* Center the content */
 }
 
-.header {
-  width: 100%;
-}
 
-body {
-  margin: 0;
-}
 @media (min-width: 768px) {
   .logo {
      margin-left: 10px;
