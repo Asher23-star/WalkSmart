@@ -198,6 +198,7 @@ footer h1 {
       // Fetching cart data from localStorage
       const cartData = JSON.parse(localStorage.getItem('custcart')) || [];
       const shippingInfo = JSON.parse(localStorage.getItem('choutinfo')) || [{}];
+      
       const invoiceItems = document.getElementById('invoiceItems');
       
       // Variables to calculate subtotal, tax, and total
@@ -231,18 +232,18 @@ footer h1 {
       document.getElementById('total').textContent = `Total: $${finalTotal.toFixed(2)}`;
 
       // Displaying shipping details
-  const shippingDetailsContainer = document.getElementById('shippingDetails');
-  const shipping = shippingInfo[0];
-  shippingDetailsContainer.innerHTML = `
-    <h3>Shipping Details</h3>
-    <p>Name: ${shipping.firstname} ${shipping.middlename || ''} ${shipping.lastname}</p>
-    <p>Address: ${shipping.stnum} ${shipping.stname}, ${shipping.city}, ${shipping.state}</p>
-    <p>Shipping Method: ${shipping.shipmethod}</p>
-    <p>Payment Method: ${shipping.paymethod}</p>
-  `;
-
-  const currentDate = new Date();
-        const formattedDate = currentDate.toLocaleDateString("en-US", {
+      const shippingDetailsContainer = document.getElementById('shippingDetails');
+      const shipping = shippingInfo[0];
+      shippingDetailsContainer.innerHTML = `
+        <h3>Shipping Details</h3>
+        <p>Name: ${shipping.firstname} ${shipping.middlename || ''} ${shipping.lastname}</p>
+        <p>Address: ${shipping.stnum} ${shipping.stname}, ${shipping.city}, ${shipping.state}</p>
+        <p>Shipping Method: ${shipping.shipmethod}</p>
+        <p>Payment Method: ${shipping.paymethod}</p>
+        `;
+      //generate date
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -254,6 +255,53 @@ footer h1 {
         // Display the date and invoice number
         document.getElementById("invoice-date").textContent = `Date: ${formattedDate}`;
         document.getElementById("invoice-number").textContent = `Invoice No: ${invoiceNumber}`;
+        
+      //alert("Invoice have been sent to your email!");
+       
+
+      // Fetch invoice details and current user
+const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+
+// retrieve  current user's TRN (
+const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN")); 
+/*
+if (!currentUserTRN) {
+  alert("No logged-in user found.");
+  window.location.href = "login.html";
+}
+*/
+// Find the current user
+const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
+
+/*if (!currentUser) {
+  alert("User not found. Please log in.");
+  window.location.href = "login.html";
+}
+*/
+// Create a new invoice object
+const newInvoice = {
+  invoiceNumber: `INV-${Date.now().toString().slice(-6)}`,
+  date: new Date().toISOString().split("T")[0], // Current date in YYYY-MM-DD format
+  items: cartData, // Assuming `cartData` is defined
+  subtotal: subtotal.toFixed(2),
+  tax: taxTotal.toFixed(2),
+  total: finalTotal.toFixed(2),
+  shippingDetails: shippingInfo[0],
+};
+
+// Append the invoice to the current user's invoices
+currentUser.invoices.push(newInvoice);
+
+// Update the RegistrationData in localStorage
+localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+
+// Add the invoice to the AllInvoices array for global access
+allInvoices.push({ trn: currentUserTRN, invoice: newInvoice });
+localStorage.setItem("AllInvoices", JSON.stringify(allInvoices));
+
+alert("Invoice saved successfully!");
+
     </script>
     
     
