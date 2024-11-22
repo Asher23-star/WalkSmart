@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Allinvoice.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>All Invoices</title>
+
+  </head>
+
+  <body>
+    <table class="invoice-list">
+      <thead>
+        <tr>
+          <th>User TRN</th>
+          <th>Date</th>
+          <th>Subtotal</th>
+          <th>Tax</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="invoice-table-body">
+        <!-- All invoices will be populated here -->
+      </tbody>
+    </table>
+
+    <script>
+      // Fetching all user data from localStorage
+      const registrationData = JSON.parse(localStorage.getItem('RegistrationData')) || [];
+
+      // Function to generate all invoices for all users
+      function displayAllInvoices() {
+        const tableBody = document.getElementById('invoice-table-body');
+        
+        // Clear the table before populating it
+        tableBody.innerHTML = '';
+
+        // Loop through all users and their invoices
+        registrationData.forEach(user => {
+          if (user.invoices && user.invoices.length > 0) {
+            user.invoices.forEach(invoice => {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${user.idnum}</td>
+                <td>${invoice.date}</td>
+                <td>$${invoice.subtotal}</td>
+                <td>$${invoice.tax}</td>
+                <td>$${invoice.total}</td>
+              `;
+              tableBody.appendChild(row);
+            });
+          }
+        });
+
+        // If no invoices were found
+        if (tableBody.rows.length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center;">No invoices found.</td></tr>`;
+        }
+      }
+
+      // Call the function to display all invoices when the page loads
+      window.onload = displayAllInvoices;
+
+    </script>
+
+  </body>
+
+</html>
