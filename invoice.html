@@ -265,20 +265,20 @@ const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
 
 // retrieve  current user's TRN (
 const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN")); 
-
+/*
 if (!currentUserTRN) {
   alert("No logged-in user found.");
   window.location.href = "index.html";
 }
-
+*/
 // Find the current user
 const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
-
+/*
 if (!currentUser) {
   alert("User not found. Please log in.");
   window.location.href = "index.html";
 }
-
+*/
 // Create a new invoice object
 const newInvoice = {
   invoiceNumber: `INV-${Date.now().toString().slice(-6)}`,
