@@ -709,6 +709,18 @@
     }
 });
 
+     // Retrieve registration data from localStorage
+const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+// Check if there's any data
+if (registrationData.length > 0) {
+    const lastUser = registrationData[registrationData.length - 1]; // Get the most recently registered user
+    console.log("Welcome, " + lastUser.fname + " " + lastUser.lname);
+} else {
+    console.log("No registration data found.");
+}
+
+
   </script>
 </body>
 </html>
