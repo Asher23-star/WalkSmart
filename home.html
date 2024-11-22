@@ -6,167 +6,163 @@
   <title>Walk Smart - by Asher</title>
   <style>
     /* General styling */
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin: 0;
-  background-color: white;
-}
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      background-color: white;
+    }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #c80808;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #c80808;
+    }
 
-.logo {
-  width: 150px;
-  height: auto;
- 
-}
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+      }
 
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-}
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+      }
 
+      .main-content h1 {
+        font-size: 50px;
+      }
 
+      .subtitle {
+        color: #ff3131;
+        font-size: 25px;
+      }
 
-.main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-}
+      .description {
+        font-size: 20px;
+        margin: 10px 0;
+      }
 
-.main-content h1 {
-  font-size: 50px;
-}
+      .shop-now {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #ff3131;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 15px;
+        text-decoration: none;
+      }
 
-.subtitle {
-  color: #ff3131;
-  font-size: 25px;
-}
+      .product-display {
+        width: 80%;
+        max-width: 600px;
+        margin-top: 20px;
+      }
 
-.description {
-  font-size: 20px;
-  margin: 10px 0;
-}
+      footer {
+        margin-top: 7%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: #c80808;
+        color: white;
+        text-align: center;
+      }
 
-.shop-now {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #ff3131;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 15px;
-  text-decoration: none;
-}
+      footer .locations, footer .contact {
+        margin: 10px 0;
+      }
 
-.product-display {
-  width: 80%;
-  max-width: 600px;
-  margin-top: 20px;
-}
+      footer h1 {
+        font-size: 24px;
+      }
 
-footer {
-  margin-top: 7%;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #c80808;
-  color: white;
-  text-align: center;
-}
+    /* Responsive Styling */
+    @media (min-width: 768px) {
+      .main-content {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 5px 50px 50px;
+        text-align: left;
+      }
+      .logo {
+         margin-left: 10px;
+       }
+      .text-content {
+        flex: 1;
+        padding-right: 20px;
+        max-width: 50%;
+      }
 
-footer .locations, footer .contact {
-  margin: 10px 0;
-}
+      .product-display {
+        flex: 1;
+        max-width: 50%;
+        margin: 0;
+      }
 
-footer h1 {
-  font-size: 24px;
-}
+      footer {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+      }
 
-/* Responsive Styling */
-@media (min-width: 768px) {
-  .main-content {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 5px 50px 50px;
-    text-align: left;
-  }
-  .logo {
-     margin-left: 10px;
-   }
-  .text-content {
-    flex: 1;
-    padding-right: 20px;
-    max-width: 50%;
-  }
+      .locations ul, .contact p {
+        text-align: left;
+      }
+    }
 
-  .product-display {
-    flex: 1;
-    max-width: 50%;
-    margin: 0;
-  }
+    @media (max-width: 767px) {
+      .header {
+        flex-direction: column;
+      }
 
-  footer {
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: left;
-  }
+      .main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+     }
 
-  .locations ul, .contact p {
-    text-align: left;
-  }
-}
+      .main-content h1 {
+        font-size: 40px;
+      }
 
-@media (max-width: 767px) {
-  .header {
-    flex-direction: column;
-  }
+      .product-display {
+        width: 100%;
+      }
 
-  .main-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+      footer {
+        flex-direction: column;
+      }
+      footer .locations, footer .contact {
+         text-align: center; 
+      }
+      .nav-links {
+        display: flex;
+        gap: 8px; /* Adjust spacing between links */
+        align-items: center; /* Center the links */
+      }
 
-  .main-content h1 {
-    font-size: 40px;
-  }
-
-  .product-display {
-    width: 100%;
-  }
-
-  footer {
-    flex-direction: column;
-  }
-  footer .locations, footer .contact {
-     text-align: center; 
-  }
-  .nav-links {
-    display: flex;
-    gap: 8px; /* Adjust spacing between links */
-    align-items: center; /* Center the links */
-  }
-
-  .nav-links a {
-    margin: 0; /* Remove extra margin */
-    padding: 5px 10px; /* Adjust padding for compactness */
-    font-size: 16px; /* Optional: Adjust font size for readability */
-  }
-}
-
+      .nav-links a {
+        margin: 0; /* Remove extra margin */
+        padding: 5px 10px; /* Adjust padding for compactness */
+        font-size: 16px; /* Optional: Adjust font size for readability */
+      }
+    }
 
   </style>
 </head>
