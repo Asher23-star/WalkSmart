@@ -39,12 +39,15 @@
         padding: 10px;
       }
 
- footer{
-      background-color: #c80808;
-      padding: 40px;
-      color: white;
-      display: flex;  align-items: flex-start; 
-    }
+ footer {
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #c80808;
+  color: white;
+  text-align: center;
+}
  footer .locations, footer .contact {
         margin: 10px 0;
       }
@@ -245,13 +248,7 @@
  background-color: #da1f1f;
  transform: scale(1.05);
 }
-/* Style for the footer */
-footer{
- background-color: #c80808;
- padding: 40px;
- color: white;
- display: flex;  align-items: flex-start; 
-}
+
     
 @media (max-width: 768px) {
  .product {
@@ -288,7 +285,30 @@ footer{
       }
     }
 
+  @media (max-width: 767px) {
+    .header {
+    flex-direction: column;
+    }
 
+    .nav-links {
+    display: flex;
+    gap: 8px; /* Adjust spacing between links */
+    align-items: center; /* Center the links */
+  }
+
+  .nav-links a {
+    margin: 0; /* Remove extra margin */
+    padding: 5px 10px; /* Adjust padding for compactness */
+    font-size: 16px; /* Optional: Adjust font size for readability */
+  }
+    
+    footer {
+    flex-direction: column;
+  }
+  footer .locations, footer .contact {
+     text-align: center; 
+  }
+}
      
     </style>
 
