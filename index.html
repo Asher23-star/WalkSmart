@@ -1,182 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="wordless.png" type="image/png">
+
     <style>
-      .textbox {
-        width: 60%;
-        height: 60px;
-        border: 1px solid #ccc;
-        padding-left: 10px;
-        font-size: 15px;
-        margin-left: 90px;
-      }
-      label {
-        margin-left: 90px;
-      }
-      .login:hover {
-        background-color: #240505;
-        transform: scale(1.05);
-      }
-      .container2 {
+      /* Import Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Poppina:wght@300;400;500;600;700;800;900&display=swap");
+      body {
         display: flex;
         justify-content: center;
         align-items: center;
+        min-height: 100vh;
+        background: url(images/resetbackground.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+
+      .logo {
+        position: absolute;
+        top: 5px; /* Adjusted for better positioning */
+        left: 10px; /* Adjusted for better positioning */
+        border-radius: 70px; /* Removed duplicate border-radius */
+        height: 150px; /* Fixed height */
+        width: 150px; /* Fixed width */
+      }
+
+      .walksmart-header {
+        position: absolute;
+        top: 0px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 24px;
+        color: black;
+      }
+
+      .wrapper {
+        width: 440px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        color: white;
+        border-radius: 10px;
+        padding: 30px 40px;
+      }
+
+      .wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+      }
+
+      .wrapper .input-box {
+        position: relative;
+        width: 98%;
+        height: 50px;
+        margin: 30px 0;
+      }
+
+      .input-box input {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 40px;
+        font-size: 16px;
+        color: white;
+      }
+
+      .input-box::placeholder {
+          color: white;
+      }
+
+      .input-box i {
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 20px;
+      }
+
+      .wrapper .remember-forgot {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14.5px;
+          margin: -15px 0 15px;
+      }
+
+      .remember-forgot label input {
+          accent-color: white;
+          margin-right: 3px;
+      }
+
+      .remember-forgot a {
+          color: white;
+          text-decoration: none;
+      }
+
+      .remember-forgot a:hover {
+          text-decoration: underline;
+      }
+
+      .wrapper .btn {
+          width: 100%;
+          height: 45px;
+          background-color: #fff; /* Button color */
+          outline: none;
+          border-radius: 40px;
+          border: none;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          font-size: 16px;
+          color: black;
+          font-weight: 600;
+      }
+
+      .btn:hover {
+          background-color: gainsboro;
+      }
+
+      .wrapper .register-link {
+          font-size: 14.5px;
+          text-align: center;
+          margin-top :20px; /* Added margin-top for better spacing */
+      }
+
+      .register-link p a {
+          color:white ;
+          text-decoration:none ;
+          font-weight :700 ;
+      }
+
+      .register-link p a:hover {
+          text-decoration :underline ;
       }
     </style>
-  </head>
-  <body
-    style="
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      margin: 0;
-      background-color: white;
-    "
-  >
-     <header class="header">
-    <a href="index.html">
-      <img src="Walk Smart.png" alt="Logo" class="logo">
-    </a>
-    <nav class="nav-links">
-      <a href="home.html">Home</a>
-      <a href="product.html">Products</a>
-      <a href="Dashboard.html">Dashboard</a>
-      <a href="index.html" class="logout">Log out</a>
-    </nav>
-  </header>
-        
-    <br /><br />
-    <div class="container2">
-      <form
-        id="loginForm"
-        method="post"
-        onsubmit="return validateLogin(event)"
-        style="justify-content: center"
-      >
-        <h1 style="font-size: 40px">Login to Your Account</h1>
-        <br />
 
-        <!-- TRN Input -->
-        <label>TRN</label><br /><br />
-        <input
-          type="text"
-          id="trn"
-          class="textbox"
-          placeholder="Enter your TRN"
-          required
-          pattern="\d{9}"
-        /><br /><br />
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <!-- Logo Section -->
+    <img src="images/walksmartlogo.jpeg" alt="logo" class="logo" />
+    <h1 class="walksmart-header">Walk Smart</h1>
 
-        <!-- Password Input -->
-        <label>Password</label><br /><br />
-        <input
-          type="password"
-          id="password"
-          class="textbox"
-          placeholder="Enter your password"
-          required
-          minlength="8"
-        /><br /><br />
+    <!-- Login Form -->
+    <div class="wrapper">
+      <h5 style="font-size:20px; margin:auto; text-align:center; color:white">Login</h5>
 
-        <!-- Submit and Register buttons -->
-        <input
-          type="submit"
-          value="Log in"
-          class="login"
-          style="
-            background-color: #ff3131;
-            padding: 20px 50px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 170px;
-          "
-        />
+      <!-- TRN Input with Icon -->
+      <div class="input-box">
+        <input type="text" id="trn" placeholder="TRN" required pattern="\d{9}" />
+        <i class="fa fa-id-card icon"></i>
+      </div>
 
-        <!-- Register Button -->
-        <button
-          type="button"
-          onclick="window.location.href='registration.html'"
-          style="
-            background-color: #ff3131;
-            padding: 20px 50px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            cursor: pointer;
-          "
-        >
-          Register
-        </button>
-      </form>
+      <!-- Password Input with Icon -->
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required minlength="8" />
+        <i class="fa fa-lock icon"></i>
+      </div>
+
+      <!-- Submit Button -->
+      <button class="btn" onclick="validateLogin(event)">Log in</button>
+
+      <div class="register-link">
+          <p>Don't have an account? <a href="#">Register</a></p>
+      </div>
     </div>
 
     <script>
       let loginAttempts = 0;
 
       function validateLogin(event) {
-  event.preventDefault();
+          event.preventDefault();
 
-  const trn_input = document.getElementById("trn").value.trim();
-  const password_input = document.getElementById("password").value.trim();
+          const trn_input = document.getElementById("trn").value.trim();
+          const password_input = document.getElementById("password").value.trim();
 
-  // Retrieve registration data from localStorage
-  const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+          const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
 
-  // Check if the entered TRN and password match any stored user data
-  const user = registrationData.find((user) => user.idnum === trn_input && user.pass === password_input);
+          const user = registrationData.find(
+              (user) => user.idnum === trn_input && user.pass === password_input
+          );
 
-  if (user) {
-    // Successful login, redirect to home page
-    window.location.href = "home.html";
-
-    // Store TRN in localStorage for session use
-    localStorage.setItem("LoggedInUserTRN", JSON.stringify(trn_input));
-
-    // Optionally, you could store other session-related data here if needed.
-  } else {
-    loginAttempts++;
-
-    if (loginAttempts >= 3) {
-      window.location.href = "error.html"; // Redirect after too many attempts
-    } else {
-      alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
-      document.getElementById("loginForm").reset(); // Clear input fields on failure
-    }
-  }
-}
-
-
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", validateLogin);
+          if (user) {
+              window.location.href = "welcome.html"; // Redirect to welcome page
+          } else {
+              loginAttempts++;
+              if (loginAttempts >= 3) {
+                  alert("Too many failed attempts. Redirecting to error page.");
+                  window.location.href = "error.html"; // Redirect after too many attempts
+              } else {
+                  alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
+                  document.getElementById("trn").value = ''; // Clear TRN field
+                  document.getElementById("password").value = ''; // Clear password field
+              }
+          }
+      }
     </script>
+</body>
+</html
 
-    <footer>
-      <div>
-        <h1>Store Locations</h1>
-        <ul style="list-style-type: none; text-align: left">
-          <li>Walk Smart Mandeville</li>
-          <br />
-          <li>Walk Smart Kingston</li>
-          <br />
-          <li>Walk Smart Falmouth</li>
-          <br />
-          <li>Walk Smart Montego Bay</li>
-          <br />
-          <li>Walk Smart Spanish Town</li>
-        </ul>
-      </div>
-
-      <div style="margin-left: 1000px">
-        <h1>Get in Touch</h1>
-        <p>
-          1-876-553-2950 • Contact Us<br /><br />Mon to Sat: 9am-6pm (EST)<br />Sun:
-          Closed
         </p>
       </div>
     </footer>
