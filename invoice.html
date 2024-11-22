@@ -157,7 +157,10 @@ footer h1 {
 
     <div class="invoice-container">
       <div class="invoice-header">
+        <h1>Walksmart</h1>
         <h1>Invoice</h1>
+        <p id="invoice-number" style="text-align: left;"></p>
+        <p id="invoice-date" style="text-align: left;"></p>
       </div>
 
       <table class="invoice-details">
@@ -180,19 +183,21 @@ footer h1 {
         <p id="tax">Tax (15%): $0.00</p>
         <p id="discount">Discount (10%): $0.00</p>
         <p id="total">Total: $0.00</p><br> <br>
-        <p>Shipping address: </p>
-        <p> </p>
-
+      </div>
+      <div id="shippingDetails" style="margin: 20px 0;">
+        <!-- Shipping details will populate here -->
       </div>
 
+
       <button class="btn" onclick="window.print()">Print Invoice</button>
-      <button class="cancel-button">Cancel Order</button> 
+    
     </div>
-    <a href="index.html" class="exit-link">Exit - Go to Home</a>
+    
 
     <script>
       // Fetching cart data from localStorage
       const cartData = JSON.parse(localStorage.getItem('custcart')) || [];
+      const shippingInfo = JSON.parse(localStorage.getItem('choutinfo')) || [{}];
       const invoiceItems = document.getElementById('invoiceItems');
       
       // Variables to calculate subtotal, tax, and total
@@ -224,6 +229,31 @@ footer h1 {
       document.getElementById('subtotal').textContent = `Subtotal: $${subtotal.toFixed(2)}`;
       document.getElementById('tax').textContent = `Tax (5%): $${taxTotal.toFixed(2)}`;
       document.getElementById('total').textContent = `Total: $${finalTotal.toFixed(2)}`;
+
+      // Displaying shipping details
+  const shippingDetailsContainer = document.getElementById('shippingDetails');
+  const shipping = shippingInfo[0];
+  shippingDetailsContainer.innerHTML = `
+    <h3>Shipping Details</h3>
+    <p>Name: ${shipping.firstname} ${shipping.middlename || ''} ${shipping.lastname}</p>
+    <p>Address: ${shipping.stnum} ${shipping.stname}, ${shipping.city}, ${shipping.state}</p>
+    <p>Shipping Method: ${shipping.shipmethod}</p>
+    <p>Payment Method: ${shipping.paymethod}</p>
+  `;
+
+  const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+
+        // Generate a unique invoice number
+        const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
+
+        // Display the date and invoice number
+        document.getElementById("invoice-date").textContent = `Date: ${formattedDate}`;
+        document.getElementById("invoice-number").textContent = `Invoice No: ${invoiceNumber}`;
     </script>
     
     
