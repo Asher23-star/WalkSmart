@@ -20,8 +20,8 @@ Discount Codes: (To be entered in on cart page)
 TAHSEIR STANBURY - 2301213
 Tasks Done:
 -html and script  dashboard
--html, script and wireframefor user invoices
--html, script and wireframe for all invoices
+-html and script for user invoices
+-html and script for all invoices
 
 TENIQUE ROBINSON - 2305605
 Tasks Done: 
