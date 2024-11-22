@@ -1,220 +1,133 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      .textbox {
-        width: 60%;
-        height: 60px;
-        border: 1px solid #ccc;
-        padding-left: 10px;
-        font-size: 15px;
-        margin-left: 90px;
-      }
-      label {
-        margin-left: 90px;
-      }
-      .signup:hover {
-        background-color: #240505;
-        transform: scale(1.05);
-      }
-      .cancel:hover {
-        background-color: #ff7070;
-        transform: scale(1.05);
-      }
-      .container3 {
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      body {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin: 0;
-        background-color: white; /* Removed background image */
-      }
-      /* New styles for the logo */
-      .logo {
-        position: fixed; /* Keeps it in place during scrolling */
-        top: 20px; /* Adjusts vertical position */
-        left: 20px; /* Adjusts horizontal position */
-        width: 200px; /* Set desired width */
-        height: 200px; /* Set desired height */
-        border-radius: 50%; /* Makes the logo circular */
-        overflow: hidden; /* Ensures any overflow is hidden */
-      }
-      .logo img {
-        width: 100%; /* Makes the image fill the container */
-        height: auto; /* Maintains aspect ratio */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Logo Section -->
-    <div class="logo">
-      <img src="images/walksmartlogo.jpeg" alt="Logo" />
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ResetPage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Reset Password</title>
+    
+</head>
 
-    <div class="container3">
-      <form id="signup" method="post" style="justify-content: center">
-        <h1 style="font-size: 40px">Walk Smart</h1>
+    <body>
+        <img src="Walk Smart.png" class="logo">
+        <h1 class="walksmart-header">
+            Walk Smart
+        </h1>
+        <div style="position: absolute; left: 10px; top: 10px;">
+            <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
+        </div>
+        
+        <div class="wrapper">
+            <form onsubmit="">
+              <h1>Register</h1>
+                
+                <div class="input-box">
+                  <label>First Name</label>
+                  <input type="text" id="fname" placeholder="Enter your first name" required>
+                </div>
+                <br>
 
-        <p>REGISTRATION</p>
+                <div class="input-box">
+                  <label>Last Name</label>
+                  <input type="text" id="lname" placeholder="Enter your last name" required>
+                </div>
+                <br>
 
-        <!-- Input fields -->
-        <label>First Name</label>
-        <input
-          type="text"
-          id="firstname"
-          class="textbox"
-          placeholder="Enter your first name"
-          required
-        /><br /><br />
+      
+                <div class="input-box">
+                  <label>Date of Birth</label>
+                  <input type="date" id="dob" class="textbox" required>
+                </div>
+                <br>
 
-        <label>Last Name</label>
-        <input
-          type="text"
-          id="lastname"
-          class="textbox"
-          placeholder="Enter your last name"
-          required
-        /><br /><br />
+               
+                <div class="input-box">
+                  <label>Gender</label>
+                    <input type="text" id="gender" placeholder="Male/Female/Other" required>
+                </div>
+                <br>
 
-        <label>Date of Birth</label>
-        <input type="date" id="dob" class="textbox" required /><br /><br />
+                
+                <div class="input-box">
+                  <label>Phone Number</label>
+                    <input type="tel" placeholder="123-456-7890" required>
+                </div>
+                <br>
 
-        <label>Gender</label>
-        <input
-          type="text"
-          id="gender"
-          class="textbox"
-          placeholder="Male/Female/Other"
-          required
-        /><br /><br />
+                
+                <div class="input-box">
+                  <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <br>
 
-        <label>Phone Number</label>
-        <input
-          type="tel"
-          id="telephone"
-          class="textbox"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          placeholder="123-456-7890"
-          required
-        /><br /><br />
+                
+                <div class="input-box">
+                  <label>TRN</label>
+                  <input type="text" id="trn" placeholder="000-000-000" required>
+                </div>
+                <br>
 
-        <label>Email</label>
-        <input
-          type="email"
-          id="email"
-          class="textbox"
-          placeholder="Enter your email"
-          required
-        /><br /><br />
+                
+                <div class="input-box">
+                  <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <br>
 
-        <label>TRN</label>
-        <input
-          type="text"
-          id="trn"
-          class="textbox"
-          pattern="\d{9}"
-          placeholder="000-000-000"
-          required
-        /><br /><br />
+                <button type="submit" class="btn">Register</button>
 
-        <label>Password</label>
-        <input
-          type="password"
-          id="password"
-          class="textbox"
-          placeholder="Enter your password"
-          required
-          minlength="8"
-        /><br /><br />
-
-        <!-- Submit and Cancel buttons -->
-        <input
-          type="submit"
-          value="Register"
-          class="signup"
-          style="
-            background-color: #ff3131;
-            padding: 20px 50px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 170px;
-          "
-        />
-
-        <!-- Cancel Button -->
-        <button
-          type="button"
-          class="cancel"
-          style="
-            background-color: #ff3131;
-            padding: 20px 50px;
-            border-radius: 5px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-left: 10px;
-          "
-          onclick="clearForm()"
-        >
-          Cancel
-        </button>
-      </form>
-    </div>
-
-    <!-- JavaScript for form submission and clearing -->
-    <script>
-      document
-        .getElementById("signup")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const dob = new Date(document.getElementById("dob").value);
-          const age = new Date().getFullYear() - dob.getFullYear();
-
-          if (age < 18) {
-            alert("You must be at least 18 years old to register.");
-            return; // Stop form submission
+            </form>
+        </div>
+        <script>
+          document
+            .getElementById("signup")
+            .addEventListener("submit", function (event) {
+              event.preventDefault();
+    
+              const dob = new Date(document.getElementById("dob").value);
+              const age = new Date().getFullYear() - dob.getFullYear();
+    
+              if (age < 18) {
+                alert("You must be at least 18 years old to register.");
+                return; // Stop form submission
+              }
+    
+              const newUser = {
+                fname: document.getElementById("firstname").value,
+                lname: document.getElementById("lastname").value,
+                dateOfBirth: dob.toISOString().split("T")[0],
+                sex: document.getElementById("gender").value,
+                phone: document.getElementById("telephone").value,
+                email: document.getElementById("email").value,
+                idnum: document.getElementById("trn").value,
+                pass: document.getElementById("password").value,
+                dateOfRegistration: new Date().toISOString().split("T")[0], // Current date
+                cart: {}, // Placeholder for cart
+                invoices: [], // Placeholder for invoices
+              };
+    
+              // Retrieve existing registration data or initialize empty array
+              let registrationData =
+                JSON.parse(localStorage.getItem("RegistrationData")) || [];
+              registrationData.push(newUser); // Append new user data
+              localStorage.setItem(
+                "RegistrationData",
+                JSON.stringify(registrationData)
+              ); // Save back to localStorage
+    
+              alert("Registration successful!");
+              window.location.href = "login.html"; // Redirect to login page after successful registration
+            });
+    
+          function clearForm() {
+            document.getElementById("signup").reset(); // Clear all form fields
           }
+        </script>
+    </body>
 
-          const newUser = {
-            fname: document.getElementById("firstname").value,
-            lname: document.getElementById("lastname").value,
-            dateOfBirth: dob.toISOString().split("T")[0],
-            sex: document.getElementById("gender").value,
-            phone: document.getElementById("telephone").value,
-            email: document.getElementById("email").value,
-            idnum: document.getElementById("trn").value,
-            pass: document.getElementById("password").value,
-            dateOfRegistration: new Date().toISOString().split("T")[0], // Current date
-            cart: {}, // Placeholder for cart
-            invoices: [], // Placeholder for invoices
-          };
-
-          // Retrieve existing registration data or initialize empty array
-          let registrationData =
-            JSON.parse(localStorage.getItem("RegistrationData")) || [];
-          registrationData.push(newUser); // Append new user data
-          localStorage.setItem(
-            "RegistrationData",
-            JSON.stringify(registrationData)
-          ); // Save back to localStorage
-
-          alert("Registration successful!");
-          window.location.href = "product.html"; // Redirect after successful registration
-        });
-
-      function clearForm() {
-        document.getElementById("signup").reset(); // Clear all form fields
-      }
-    </script>
-  </body>
 </html>
