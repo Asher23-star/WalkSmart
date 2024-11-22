@@ -31,11 +31,11 @@
                 <i class='bx bxs-dashboard' id="dashboard"></i>
                 <ul class="list" id="list">
                     <li>
-                        <button name="gender" class='bx bx-receipt' onclick="ShowInvoices()">All Invoices</button>
+                        <button name="all" class='bx bx-receipt' onclick="ShowInvoices()">All Invoices</button>
                     </li>
 
                     <li>
-                        <button name="age" class='bx bxs-receipt' onclick="GetUserInvoices()">User Invoices</button>
+                        <button name="user" class='bx bxs-receipt' onclick="GetUserInvoices()">User Invoices</button>
                     </li>
 
                     <li>
@@ -57,14 +57,12 @@
                 <div class="beside">
                     <div  class="horizontal-container">
                         <h2 style="text-align: center;" class="title">All Invoices</h2>
-                        <input type="text" placeholder="Search TRN" id="input">
-                        <iframe name="frm1" height="330px"></iframe>
+                        <iframe name="frm1" id="frm1" height="330px"></iframe>
                     </div>
     
                     <div class="horizontal-container">
                         <h2 style="text-align: center;" class="title">User Invoices</h2>
-                        <input type="text" placeholder="Search TRN" id="input">
-                        <iframe name="frm2" height="330px" src="https://www.utech.edu.jm"></iframe>
+                        <iframe name="frm2" id="frm2" height="330px" src="Userinvoice.html"></iframe>
                     </div>
                 </div> 
     
@@ -166,12 +164,14 @@
             {
                 if (event.target.getAttribute('name') === 'gender') 
                 {
-                    if (gchart) /*Checks if there is a chart already rendered and destroys it to prevent multiple charts being created*/
+                    if (gchart) /*Checks if there is a chart already rendered and destroys it to prevent multiple charts being created */
                     {
                         gchart.destroy();
+
                     }
                     gchart = new ApexCharts(document.querySelector("#gender-chart"), genderOptions);
                     gchart.render();
+
                 } 
                 else if (event.target.getAttribute('name') === 'age') 
                 {
@@ -180,29 +180,41 @@
                         achart.destroy();
                     }
                     achart = new ApexCharts(document.querySelector("#age-chart"), ageOptions);
-                    achart.render();
+                    achart.render(); 
                 }
             });
+
+            
         }
 
-        document.getElementById('input').addEventListener('keydown', function(event) 
+        function ShowInvoices() 
         {
-            if (event.key === 'Enter') 
+            var iframe = document.getElementById("frm1");
+
+            if (iframe.style.display === "none" || iframe.style.display === "") 
             {
-                alert('Enter key was pressed!');
-                // You can add more actions here, like submitting a form or processing input.
+                iframe.style.display = "block"; 
+            } 
+            else 
+            {
+                iframe.style.display = "none"; 
             }
-        });
-
-        function ShowInvoices()
-        {
-
         }
 
-        function GetUserInvoices()
+        function GetUserInvoices() 
         {
-
+            var iframe = document.getElementById("frm2");
+            
+            if (iframe.style.display === "none" || iframe.style.display === "") 
+            {
+                iframe.style.display = "block"; 
+            } 
+            else 
+            {
+                iframe.style.display = "none"; 
+            }
         }
+
         
     </script>
         
