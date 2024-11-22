@@ -191,50 +191,41 @@ footer h1 {
     <a href="index.html" class="exit-link">Exit - Go to Home</a>
 
     <script>
-      // Fetch cart items from local storage
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-      // Generate invoice items dynamically
-      const invoiceItemsContainer = document.getElementById('invoiceItems');
+      // Fetching cart data from localStorage
+      const cartData = JSON.parse(localStorage.getItem('custcart')) || [];
+      const invoiceItems = document.getElementById('invoiceItems');
+      
+      // Variables to calculate subtotal, tax, and total
       let subtotal = 0;
+      let taxTotal = 0;
+      let finalTotal = 0;
     
-      cart.forEach(item => {
+      // Populating the invoice table with cart data
+      cartData.forEach(item => {
+        const tax = item.price * 0.05;
+        const total = (item.price * item.quantity) + (item.quantity * tax);
+        subtotal += item.price * item.quantity;
+        taxTotal += item.quantity * tax;
+        finalTotal += total;
+    
+        // Add product details to the table
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${item.name}</td>
-          <td><img src="${item.image}" alt="${item.name}" class="product-img" /></td>
+          <td><img class="product-img" src="${item.image}" alt="${item.name}" /></td>
           <td>${item.size}</td>
-          <td>1</td>
+          <td>${item.quantity}</td>
           <td>$${item.price.toFixed(2)}</td>
         `;
-        invoiceItemsContainer.appendChild(row);
-        subtotal += item.price;
+        invoiceItems.appendChild(row);
       });
     
-      // Calculate tax, discount, and total
-      const taxRate = 0.15;
-      const discountRate = 0.10;
-      const tax = subtotal * taxRate;
-      const discount = subtotal * discountRate;
-      const total = subtotal + tax - discount;
-    
-      // Update invoice summary
-      document.getElementById('subtotal').innerText = `Subtotal: $${subtotal.toFixed(2)}`;
-      document.getElementById('tax').innerText = `Tax (15%): $${tax.toFixed(2)}`;
-      document.getElementById('discount').innerText = `Discount (10%): $${discount.toFixed(2)}`;
-      document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
-    
-      // Cancel Order function
-      const cancelButton = document.querySelector('.cancel-button');
-      cancelButton.addEventListener('click', function() {
-    
-      localStorage.removeItem('cart');
-      alert('Your order has been cancelled. The cart is now empty.');
-    
-      // Refresh the page to update the invoice
-      location.reload();
-      });
+      // Update footer details
+      document.getElementById('subtotal').textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+      document.getElementById('tax').textContent = `Tax (5%): $${taxTotal.toFixed(2)}`;
+      document.getElementById('total').textContent = `Total: $${finalTotal.toFixed(2)}`;
     </script>
+    
     
   </body>
 </html>
