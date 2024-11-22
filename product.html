@@ -222,25 +222,6 @@
         .nav-links {
           justify-content: flex-start;
         }
-        .product {
-          width: 30%; 
-          margin-right: 20px;
-        }
-
-        .container {
-            width: 100%;
-          }
-
-        /* Adjust the position of fixed links for smaller screens */
-        .exit-link, .cart-link, .checkout-link {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        margin: 10px;
-        width: auto;
-        padding: 10px 15px;
-        }
         footer {
         flex-direction: row;
         justify-content: space-around;
@@ -379,7 +360,28 @@
     
     }
   }
-      
+    @media (max-width: 768px) {
+    .product {
+      width: 30%; /* 1 product per row on small screens */
+      margin-right: 20px;
+    }
+
+    /* Adjust the container to be full width on smaller screens */
+    .container {
+      width: 100%;
+    }
+
+    /* Adjust the position of fixed links for smaller screens */
+    .exit-link, .cart-link, .checkout-link {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      margin: 10px;
+      width: auto;
+      padding: 10px 15px;
+    }
+  }
   </style>
   </head>   
    <body>
