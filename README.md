@@ -12,11 +12,6 @@ Tasks Done:
 -html, css and script for cart page
 -html, css and script for checkout page
 
-Discount Codes: (To be entered in on cart page)
--HIGHIQ (15% discount)
--MerryXmas! (10% discount)
-
-
 TAHSEIR STANBURY - 2301213
 Tasks Done:
 -html and script  dashboard
@@ -41,3 +36,8 @@ ANDRE CAMPBELL - 2301103
 -html and script for login
 -html and script for reset password
 -wireframe for dashboard
+
+**Credentials and Discount Codes**
+Discount Codes: (To be entered in on cart page)
+-HIGHIQ (15% discount)
+-MerryXmas! (10% discount)
