@@ -118,38 +118,37 @@
       let loginAttempts = 0;
 
       function validateLogin(event) {
-        event.preventDefault();
+  event.preventDefault();
 
-        const trn_input = document.getElementById("trn").value.trim();
-        const password_input = document.getElementById("password").value.trim();
+  const trn_input = document.getElementById("trn").value.trim();
+  const password_input = document.getElementById("password").value.trim();
 
-        // Retrieve registration data from localStorage
-        const registrationData =
-          JSON.parse(localStorage.getItem("RegistrationData")) || [];
+  // Retrieve registration data from localStorage
+  const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
 
-        // Check if the entered TRN and password match any stored user data
-        const user = registrationData.find(
-          (user) => user.idnum === trn_input && user.pass === password_input
-        );
+  // Check if the entered TRN and password match any stored user data
+  const user = registrationData.find((user) => user.idnum === trn_input && user.pass === password_input);
 
-        if (user) {
-          // Successful login, redirect to welcome page
-          window.location.href = "welcome.html";
+  if (user) {
+    // Successful login, redirect to home page
+    window.location.href = "home.html";
 
-          // Optionally, you could store user session info here if needed.
-        } else {
-          loginAttempts++;
+    // Store TRN in localStorage for session use
+    localStorage.setItem("LoggedInUserTRN", JSON.stringify(trn_input));
 
-          if (loginAttempts >= 3) {
-            window.location.href = "error.html"; // Redirect after too many attempts
-          } else {
-            alert(
-              `Invalid login. You have ${3 - loginAttempts} attempt(s) left.`
-            );
-            document.getElementById("loginForm").reset(); // Clear input fields on failure
-          }
-        }
-      }
+    // Optionally, you could store other session-related data here if needed.
+  } else {
+    loginAttempts++;
+
+    if (loginAttempts >= 3) {
+      window.location.href = "error.html"; // Redirect after too many attempts
+    } else {
+      alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
+      document.getElementById("loginForm").reset(); // Clear input fields on failure
+    }
+  }
+}
+
 
       document
         .getElementById("loginForm")
