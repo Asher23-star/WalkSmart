@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Userinvoice.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/4.0.0/apexcharts.min.js"></script>
+        <title>Invoice</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>User Invoice</h1>
+            <div class="group">
+                <label> Enter Tax Registration Number:</label>
+                <input type="text" id="trn" name="trn" required placeholder="000-000-000-000">
+            </div>
+
+            <div class="group">
+                <input type="submit" value="Submit">
+            </div>
+
+            <p class="note">Please ensure that the TRN you enter is accurate for invoice verification.</p>
+        </div>
+
+        
+    </body>
+
+    <script>
+       // Fetch AllInvoices from localStorage
+        const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+
+        // Simulate current user's TRN (from session)
+        const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN"));
+
+        if (!currentUserTRN) {
+        alert("No logged-in user found.");
+        window.location.href = "login.html";
+        }
+
+        // Filter invoices for the current user
+        const userInvoices = allInvoices.filter(invoice => invoice.trn === currentUserTRN);
+
+        // Render invoices
+        const invoiceContainer = document.getElementById("invoiceContainer"); // Placeholder for invoices on dashboard
+        invoiceContainer.innerHTML = userInvoices.length
+        ? userInvoices
+            .map(
+                (entry) => `
+            <div class="invoice">
+                <h3>Invoice No: ${entry.invoice.invoiceNumber}</h3>
+                <p>Date: ${entry.invoice.date}</p>
+                <p>Subtotal: $${entry.invoice.subtotal}</p>
+                <p>Tax: $${entry.invoice.tax}</p>
+                <p>Total: $${entry.invoice.total}</p>
+                <hr />
+            </div>
+            `
+            )
+            .join("")
+        : "<p>No invoices found.</p>";
+
+    </script>
+
+</html>
