@@ -322,7 +322,7 @@ footer{
                         </div>
                         <div>
                             <br>
-                            Payment Method &emsp13;<select name="paymeth" id="methpay">
+                           Payment Method &emsp13;<select name="paymeth" id="methpay" required>
                                 <option selected></option>
                                 <option>PayPal</option>
                                 <option>Apple Pay</option>
@@ -417,7 +417,7 @@ footer{
             ];
 
             localStorage.setItem('choutinfo',JSON.stringify(choutinfo));
-            document.location='invoice.html'
+            document.location='invoice.html';
         }
         //call of update checkout function
         updateco();
