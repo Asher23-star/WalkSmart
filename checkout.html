@@ -314,7 +314,7 @@ footer{
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                         <div>
                            <br>
-                           Shipping Method &emsp13;<select name="shmet" id="shipmeth" required>
+                           Shipping Method &emsp13;<select name="shmet" id="shipmeth">
                             <option selected></option>
                             <option>by car</option>
                             <option>by sea</option>
@@ -322,7 +322,7 @@ footer{
                         </div>
                         <div>
                             <br>
-                            Payment Method &emsp13;<select name="paymeth" id="methpay" required>
+                            Payment Method &emsp13;<select name="paymeth" id="methpay">
                                 <option selected></option>
                                 <option>PayPal</option>
                                 <option>Apple Pay</option>
@@ -332,7 +332,7 @@ footer{
                     </div>
         </fieldset>
         <div style="text-align:right;">
-        <button onclick="submitshipdata();document.location='invoice.html" class="confirm">Confirm </button>
+        <button onclick="submitshipdata();" class="confirm">Confirm </button>
         <button onclick="document.location='cart.html'" class="COcancel">Cancel</button>
         </div>
       </div>
