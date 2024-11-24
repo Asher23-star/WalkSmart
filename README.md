@@ -14,7 +14,7 @@ Tasks Done:
 
 TAHSEIR STANBURY - 2301213
 Tasks Done:
--html and script  dashboard
+-html, script and wireframe for dashboard
 -html and script for user invoices
 -html and script for all invoices
 
