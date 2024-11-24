@@ -165,12 +165,11 @@
       transform: scale(1.05);
     }
       
-    //Buttons reserved for phone view 
-    .exit,
-    .cart,
-    .checkout {
+    //exit Button reserved for phone view 
+    .exit {
         display:none;
     }
+      
     .size-button.active {
         background-color: #ff3131; 
     }  
@@ -244,26 +243,24 @@
    
     .nav-links {
       display: flex;
-      gap: 1px; 
+      gap: 2px; 
       align-items: center; 
       }
 
     .nav-links a {
       margin: 0; 
-      padding: 3px 6x;
+      padding: 3px 10x;
       font-size: 16px; 
       }
 
-      .action-buttons {
+      .exit-button {
         display: flex;
         justify-content: center; 
         gap: 10px; 
         margin-top: 10px;
       }
 
-      .exit,
-      .cart,
-      .checkout {
+      .exit {
         display: inline-block;
         padding: 8px 12px; 
         font-size: 14px;
@@ -275,11 +272,10 @@
         white-space: nowrap; 
       }
 
-      .exit:hover,
-      .cart:hover,
-      .checkout:hover {
+      .exit:hover {
           background-color: #da1f1f;
       }
+      
       .exit-link,
       .cart-link,
       .checkout-link {
@@ -396,10 +392,8 @@
           <a href="Dashboard.html">Dashboard</a>
           <a href="index.html" class="logout">Log out</a>
         </nav>
-         <div class="action-buttons">
+         <div class="exit-button">
             <a href="index.html" class="exit">Exit</a>
-            <a href="cart.html" class="cart">Cart</a>
-            <a href="checkout.html" class="checkout">Checkout</a>
          </div>
       </header>
       <br>
