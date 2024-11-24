@@ -212,7 +212,7 @@
       text-align: center;
       justify-content: center;
       margin-top: auto;
-  }
+     }
 
 
       body {
@@ -224,6 +224,7 @@
       .container {
         display: flex;
         gap: 0;
+        width: 100%;
         flex-direction: row; 
         box-sizing: border-box;
         gap: 20px; 
@@ -236,6 +237,7 @@
       }
 
       .product {
+        width: 30%;
         min-width: 300px; 
         max-width: 300px;
         padding: 10px;
@@ -280,19 +282,8 @@
     .cancel-button:hover {
       background-color: #da1f1f;
     }  
-
-      @media (max-width: 768px) {
-    .product {
-      width: 30%;
-      margin-right: 20px;
-    }
-
-    /* Adjust the container to be full width on smaller screens */
-    .container {
-      width: 100%;
-    }
   }
-  }
+  
 
   </style>
   </head>   
