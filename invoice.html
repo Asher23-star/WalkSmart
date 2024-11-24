@@ -194,115 +194,84 @@ footer h1 {
     </div>
     
 
-    <script>
-      // Fetching cart data from localStorage
-      const cartData = JSON.parse(localStorage.getItem('custcart')) || [];
-      const shippingInfo = JSON.parse(localStorage.getItem('choutinfo')) || [{}];
-      
-      const invoiceItems = document.getElementById('invoiceItems');
-      
-      // Variables to calculate subtotal, tax, and total
-      let subtotal = 0;
-      let taxTotal = 0;
-      let finalTotal = 0;
-    
-      // Populating the invoice table with cart data
-      cartData.forEach(item => {
-        const tax = item.price * 0.05;
-        const total = (item.price * item.quantity) + (item.quantity * tax);
-        subtotal += item.price * item.quantity;
-        taxTotal += item.quantity * tax;
-        finalTotal += total;
-    
-        // Add product details to the table
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${item.name}</td>
-          <td><img class="product-img" src="${item.image}" alt="${item.name}" /></td>
-          <td>${item.size}</td>
-          <td>${item.quantity}</td>
-          <td>$${item.price.toFixed(2)}</td>
-        `;
-        invoiceItems.appendChild(row);
-      });
-    
-      // Update footer details
-      document.getElementById('subtotal').textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-      document.getElementById('tax').textContent = `Tax (5%): $${taxTotal.toFixed(2)}`;
-      document.getElementById('total').textContent = `Total: $${finalTotal.toFixed(2)}`;
+<script>
+  // Fetch cart details from localStorage
+  const cartData = JSON.parse(localStorage.getItem("custcart")) || [];
+  const shippingInfo = JSON.parse(localStorage.getItem("choutinfo")) || [{}];
+  const valuesForCheckout = JSON.parse(localStorage.getItem("valuesforco")) || [0, 0, 0, 0, 0];
 
-      // Displaying shipping details
-      const shippingDetailsContainer = document.getElementById('shippingDetails');
-      const shipping = shippingInfo[0];
-      shippingDetailsContainer.innerHTML = `
-        <h3>Shipping Details</h3>
-        <p>Name: ${shipping.firstname} ${shipping.middlename || ''} ${shipping.lastname}</p>
-        <p>Address: ${shipping.stnum} ${shipping.stname}, ${shipping.city}, ${shipping.state}</p>
-        <p>Shipping Method: ${shipping.shipmethod}</p>
-        <p>Payment Method: ${shipping.paymethod}</p>
-        `;
-      //generate date
-      const currentDate = new Date();
-      const formattedDate = currentDate.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
+  const [grandtot, dis, finaldistot, totl, tottax] = valuesForCheckout;
 
-        // Generate a unique invoice number
-        const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
+  const invoiceItems = document.getElementById("invoiceItems");
 
-        // Display the date and invoice number
-        document.getElementById("invoice-date").textContent = `Date: ${formattedDate}`;
-        document.getElementById("invoice-number").textContent = `Invoice No: ${invoiceNumber}`;
-        
-      //alert("Invoice have been sent to your email!");
-       
+  // Populate invoice items from cartData
+  cartData.forEach(item => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td><img class="product-img" src="${item.image}" alt="${item.name}" /></td>
+      <td>${item.size}</td>
+      <td>${item.quantity}</td>
+      <td>$${item.price.toFixed(2)}</td>
+    `;
+    invoiceItems.appendChild(row);
+  });
 
-      // Fetch invoice details and current user
-const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
-const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+  // Update the invoice footer with the fetched values
+  document.getElementById("subtotal").textContent = `Subtotal: $${totl.toFixed(2)}`;
+  document.getElementById("tax").textContent = `Tax (5%): $${tottax.toFixed(2)}`;
+  document.getElementById("discount").textContent = `Discount: -$${dis.toFixed(2)}`;
+  document.getElementById("total").textContent = `Total: $${finaldistot.toFixed(2)}`;
 
-// retrieve  current user's TRN (
-const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN")); 
-/*
-if (!currentUserTRN) {
-  alert("No logged-in user found.");
-  window.location.href = "index.html";
-}
-*/
-// Find the current user
-const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
+  // Display shipping details
+  const shippingDetailsContainer = document.getElementById("shippingDetails");
+  const shipping = shippingInfo[0];
+  shippingDetailsContainer.innerHTML = `
+    <h3>Shipping Details</h3>
+    <p>Name: ${shipping.firstname || ''} ${shipping.middlename || ''} ${shipping.lastname || ''}</p>
+    <p>Address: ${shipping.stnum || ''} ${shipping.stname || ''}, ${shipping.city || ''}, ${shipping.state || ''}</p>
+    <p>Shipping Method: ${shipping.shipmethod || ''}</p>
+    <p>Payment Method: ${shipping.paymethod || ''}</p>
+  `;
 
-/*if (!currentUser) {
-  alert("User not found. Please log in.");
-  window.location.href = "index.html";
-}
-*/
-// Create a new invoice object
-const newInvoice = {
-  invoiceNumber: `INV-${Date.now().toString().slice(-6)}`,
-  date: new Date().toISOString().split("T")[0], // Current date in YYYY-MM-DD format
-  items: cartData, // Assuming `cartData` is defined
-  subtotal: subtotal.toFixed(2),
-  tax: taxTotal.toFixed(2),
-  total: finalTotal.toFixed(2),
-  shippingDetails: shippingInfo[0],
-};
+  // Generate current date and unique invoice number
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const invoiceNumber = `INV-${Date.now().toString().slice(-6)}`;
 
-// Append the invoice to the current user's invoices
-currentUser.invoices.push(newInvoice);
+  document.getElementById("invoice-date").textContent = `Date: ${formattedDate}`;
+  document.getElementById("invoice-number").textContent = `Invoice No: ${invoiceNumber}`;
 
-// Update the RegistrationData in localStorage
-localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+  // Save the invoice to localStorage for persistence
+  const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+  const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+  const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN"));
 
-// Add the invoice to the AllInvoices array for global access
-allInvoices.push({ trn: currentUserTRN, invoice: newInvoice });
-localStorage.setItem("AllInvoices", JSON.stringify(allInvoices));
+  const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
+  if (currentUser) {
+    const newInvoice = {
+      invoiceNumber,
+      date: new Date().toISOString().split("T")[0],
+      items: cartData,
+      subtotal: totl.toFixed(2),
+      tax: tottax.toFixed(2),
+      total: finaldistot.toFixed(2),
+      shippingDetails: shipping,
+    };
 
-alert("Invoice saved successfully!");
+    currentUser.invoices = currentUser.invoices || [];
+    currentUser.invoices.push(newInvoice);
 
-    </script>
+    localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+    allInvoices.push({ trn: currentUserTRN, invoice: newInvoice });
+    localStorage.setItem("AllInvoices", JSON.stringify(allInvoices));
+  }
+</script>
+
     
     
   </body>
