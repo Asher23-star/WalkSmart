@@ -84,49 +84,47 @@
             </form>
         </div>
         <script>
-          document
-            .getElementById("signup")
-            .addEventListener("submit", function (event) {
-              event.preventDefault();
-    
-              const dob = new Date(document.getElementById("dob").value);
-              const age = new Date().getFullYear() - dob.getFullYear();
-    
-              if (age < 18) {
-                alert("You must be at least 18 years old to register.");
-                return; // Stop form submission
-              }
-    
-              const newUser = {
-                fname: document.getElementById("firstname").value,
-                lname: document.getElementById("lastname").value,
-                dateOfBirth: dob.toISOString().split("T")[0],
-                sex: document.getElementById("gender").value,
-                phone: document.getElementById("telephone").value,
-                email: document.getElementById("email").value,
-                idnum: document.getElementById("trn").value,
-                pass: document.getElementById("password").value,
-                dateOfRegistration: new Date().toISOString().split("T")[0], // Current date
-                cart: {}, // Placeholder for cart
-                invoices: [], // Placeholder for invoices
-              };
-    
-              // Retrieve existing registration data or initialize empty array
-              let registrationData =
-                JSON.parse(localStorage.getItem("RegistrationData")) || [];
-              registrationData.push(newUser); // Append new user data
-              localStorage.setItem(
-                "RegistrationData",
-                JSON.stringify(registrationData)
-              ); // Save back to localStorage
-    
-              alert("Registration successful!");
-              window.location.href = "login.html"; // Redirect to login page after successful registration
-            });
-    
-          function clearForm() {
+           let users= [];
+
+          document.getElementById("wrapper").addEventListener("submit"), function(event){
+            event.preventDefault();//This will prevent default for submission
+
+          //get input values here
+          const fname= document.getElementById("fname").value;
+          const lname=document.getElementById("lname").value;
+          const dob=document.getElementById("dob").value;
+          const gender=document.getElementById("gender").value;
+          const trn=document.getElementById("trn").value;
+          const password=document.getElementById("password").value;
+
+          //This block of code will calculate the age for the user to decide whether or not they can enter
+            const birthDate= new Date(dob);
+            const age= new Date().getFullYear() - birthDate.getFullYear();
+            const month= new Date().getMonth();
+            if (new Date().getMonth() < birthDate.getMonth()  || (new Date().getMonth()===  birthDate.getMonth() && new Date().getDate() <  birthDate.getDate ())){
+              age--;
+            }
+
+            if(age < 18){
+              alert("You must be at least 18 years old to register.");
+              return;//Prevent form submission if underage
+            }
+
+            //This will create a new user object
+            const newUser= {fname, lname, dob, gender, trn, password};
+
+            //This will add the new user to the users array created at the start of the javascript
+            users.push(newUser);
+
+            //store the users array in localstorage
+            localStorage.setItem("users", JSON.stringify(users));
+
+            //user will be redirected to the login page
+            window.location.href = "index.html";
+
+            function clearForm() {
             document.getElementById("signup").reset(); // Clear all form fields
-          }
+          };
         </script>
     </body>
 
