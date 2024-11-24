@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="wordless.png" type="image/png">
     <title>Login</title>
-    
 </head>
 <body>
     <img src="Walk Smart.png" class="logo">
@@ -18,15 +16,15 @@
     </h1>
 
     <div class="wrapper">
-        <form onsubmit="validateLogin(event)">
+        <form id="loginForm" onsubmit="validateLogin(event)">
             <h1 style="color: black; font-size: 60px; margin-top: 0%;"><i class='bx bx-user-circle'></i></h1>
             <div class="input-box">
-                <input type="text" placeholder="TRN" required>
+                <input type="text" id="loginTrn" placeholder="TRN" required>
                 <i class='bx bxs-id-card'></i>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Password" required pattern=".{8,}">
+                <input type="password" id="loginPassword" placeholder="Password" required pattern=".{8,}">
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
@@ -45,30 +43,53 @@
 </body>
 
 <script>
-    let attempts = 0; 
-    const maxAttempts = 3; 
+    // This function will handle form submission and validate login credentials
+    function validateLogin(event) {
+        event.preventDefault();
 
-    function validateLogin(event) 
-    {
-        event.preventDefault(); 
+        // Retrieve the users array from localStorage or use an empty array if no users are saved
+        let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        const username = document.querySelector('input[type="text"]').value;
-        const password = document.querySelector('input[type="password"]').value;
+        // Get the values entered by the user
+        const trn = document.getElementById("loginTrn").value;
+        const password = document.getElementById("loginPassword").value;
 
-        if (username === "cit2011" && password === "programming") 
-        {
-            window.location.href = "Home.html"; 
-        } 
-        else 
-        {
-            attempts++;
-            alert(`Login failed. Attempt ${attempts} of ${maxAttempts}.`);
+        // Search for a matching user in the users array
+        const user = users.find(user => user.trn === trn && user.password === password);
 
-            if (attempts >= maxAttempts) 
-            {
-                window.location.href = "error.html"; 
-            }
+        // Check if the user exists and if credentials are correct
+        if (user) {
+            alert("Login successful! Welcome to Walk Smart");
+            window.location.href = "product.html"; // Redirect to the product page
+        } else {
+            alert("Invalid TRN or Password.");
         }
     }
+
+    // Below is the block of code that will be responsible for the Forgot Password function
+    document.getElementById("forgotPasswordLink").addEventListener("click", function(event){
+        event.preventDefault();
+
+        // Ask the user to enter TRN to check if it is registered
+        const trn = prompt("Enter your Tax Registration Number (TRN):");
+
+        // Try to locate the TRN in the users array
+        const user = users.find(user => user.trn === trn);
+
+        // If user is found, they can reset their password
+        if(user) {
+            const newPassword = prompt("Please enter a new password:");
+            user.password = newPassword; // Update the user password
+            
+            // Save the updated users array back to localStorage
+            localStorage.setItem("users", JSON.stringify(users));
+           
+
+            alert("Thank you! Your password was updated!");
+        } else {
+            alert("User not found in the system. Please register.");
+        }
+    });
 </script>
+
 </html>
