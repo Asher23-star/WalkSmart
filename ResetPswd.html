@@ -1,4 +1,4 @@
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,4 +45,85 @@
         </div>
     </body>
 
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login_Style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="wordless.png" type="image/png">
+    <title>Reset Password</title>
+</head>
+
+<body>
+    <img src="Walk Smart.png" class="logo">
+    <h1 class="walksmart-header">
+        Walk Smart
+    </h1>
+    <div style="position: absolute; left: 10px; top: 10px;">
+        <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
+    </div>
+    
+    <div class="wrapper">
+        <form onsubmit="resetPassword(event)">
+            <h1>Reset Password</h1>
+            <div class="input-box">
+                <input type="text" id="trn" placeholder="TRN" required>
+                <i class='bx bxs-id-card'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="newPassword" placeholder="New Password" required pattern=".{8,}">
+                <i style="color: black;" class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required pattern=".{8,}">
+                <i style="color: black;" class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button type="submit" class="btn">RESET</button>
+        </form>
+    </div>
+
+    <script>
+        function resetPassword(event) {
+            event.preventDefault();
+
+            // Retrieve users array from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Get the values entered by the user
+            const trn = document.getElementById("trn").value;
+            const newPassword = document.getElementById("newPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Check if the new password and confirm password match
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Try to find the user by TRN
+            const user = users.find(user => user.trn === trn);
+
+            // If the user is found, update their password
+            if (user) {
+                user.password = newPassword; // Update the password
+                localStorage.setItem("users", JSON.stringify(users)); // Save updated user data in localStorage
+
+                alert("Your password has been reset successfully!");
+
+                // Redirect to the login page (index.html)
+                window.location.href = "index.html";
+            } else {
+                alert("User not found. Please check your TRN.");
+            }
+        }
+    </script>
+</body>
 </html>
