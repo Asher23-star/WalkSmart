@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,124 +8,118 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="wordless.png" type="image/png">
     <title>Register</title>
-    
 </head>
 
-    <body>
-        <img src="Walk Smart.png" class="logo">
-        <h1 class="walksmart-header">
-            Walk Smart
-        </h1>
-        <div style="position: absolute; left: 10px; top: 10px;">
-            <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
-        </div>
-        
-        <div class="wrapper">
-            <form onsubmit="">
-              <h1>Register</h1>
-                
-                <div class="input-box">
-                  <label>First Name</label>
-                  <input type="text" id="fname" placeholder="Enter your first name" required>
-                </div>
-                <br>
+<body>
+    <img src="Walk Smart.png" class="logo">
+    <h1 class="walksmart-header">
+        Walk Smart
+    </h1>
+    <div style="position: absolute; left: 10px; top: 10px;">
+        <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
+    </div>
 
-                <div class="input-box">
-                  <label>Last Name</label>
-                  <input type="text" id="lname" placeholder="Enter your last name" required>
-                </div>
-                <br>
+    <div class="wrapper">
+        <form id="registerForm">
+            <h1>Register</h1>
+            <div class="input-box">
+                <label>First Name</label>
+                <input type="text" id="fname" placeholder="Enter your first name" required>
+            </div>
+            <br>
 
-      
-                <div class="input-box">
-                  <label>Date of Birth</label>
-                  <input type="date" id="dob" class="textbox" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>Last Name</label>
+                <input type="text" id="lname" placeholder="Enter your last name" required>
+            </div>
+            <br>
 
-               
-                <div class="input-box">
-                  <label>Gender</label>
-                    <input type="text" id="gender" placeholder="Male/Female" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>Date of Birth</label>
+                <input type="date" id="dob" class="textbox" required>
+            </div>
+            <br>
 
-                
-                <div class="input-box">
-                  <label>Phone Number</label>
-                    <input type="tel" placeholder="123-456-7890" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>Gender</label>
+                <input type="text" id="gender" placeholder="Male/Female" required>
+            </div>
+            <br>
 
-                
-                <div class="input-box">
-                  <label>Email</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="123-456-7890" required>
+            </div>
+            <br>
 
-                
-                <div class="input-box">
-                  <label>TRN</label>
-                  <input type="text" id="trn" placeholder="000-000-000" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <br>
 
-                
-                <div class="input-box">
-                  <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <br>
+            <div class="input-box">
+                <label>TRN</label>
+                <input type="text" id="trn" placeholder="000-000-000" required>
+            </div>
+            <br>
 
-                <button type="submit" class="btn">REGISTER</button>
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <br>
 
-            </form>
-        </div>
-        <script>
-           let users= [];
+            <button type="submit" class="btn">REGISTER</button>
 
-          document.getElementById("wrapper").addEventListener("submit"), function(event){
-            event.preventDefault();//This will prevent default for submission
+        </form>
+    </div>
 
-          //get input values here
-          const fname= document.getElementById("fname").value;
-          const lname=document.getElementById("lname").value;
-          const dob=document.getElementById("dob").value;
-          const gender=document.getElementById("gender").value;
-          const trn=document.getElementById("trn").value;
-          const password=document.getElementById("password").value;
+    <script>
+        let users = [];  // Array to hold the users
 
-          //This block of code will calculate the age for the user to decide whether or not they can enter
-            const birthDate= new Date(dob);
-            const age= new Date().getFullYear() - birthDate.getFullYear();
-            const month= new Date().getMonth();
-            if (new Date().getMonth() < birthDate.getMonth()  || (new Date().getMonth()===  birthDate.getMonth() && new Date().getDate() <  birthDate.getDate ())){
-              age--;
+        // Event listener for form submission
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting the default way
+
+            // Get input values
+            const fname = document.getElementById("fname").value;
+            const lname = document.getElementById("lname").value;
+            const dob = document.getElementById("dob").value;
+            const gender = document.getElementById("gender").value;
+            const trn = document.getElementById("trn").value;
+            const password = document.getElementById("password").value;
+
+            // Calculate age from the date of birth
+            const birthDate = new Date(dob);
+            const age = new Date().getFullYear() - birthDate.getFullYear();
+            const month = new Date().getMonth();
+
+            // Adjust age if the user hasn't had their birthday yet this year
+            if (new Date().getMonth() < birthDate.getMonth() || 
+                (new Date().getMonth() === birthDate.getMonth() && new Date().getDate() < birthDate.getDate())) {
+                age--;
             }
 
-            if(age < 18){
-              alert("You must be at least 18 years old to register.");
-              return;//Prevent form submission if underage
+            // Check if the user is under 18
+            if (age < 18) {
+                alert("You must be at least 18 years old to register.");
+                return;  // Prevent form submission if the user is underage
             }
 
-            //This will create a new user object
-            const newUser= {fname, lname, dob, gender, trn, password};
+            // Create a new user object
+            const newUser = { fname, lname, dob, gender, trn, password };
 
-            //This will add the new user to the users array created at the start of the javascript
+            // Push the new user into the users array
             users.push(newUser);
 
-            //store the users array in localstorage
+            // Store the users array in localStorage
             localStorage.setItem("users", JSON.stringify(users));
 
-            //user will be redirected to the login page
+            // Redirect to login page (index.html)
             window.location.href = "index.html";
-
-            function clearForm() {
-            document.getElementById("signup").reset(); // Clear all form fields
-          };
-          }
-        </script>
-    </body>
+        });
+    </script>
+</body>
 
 </html>
