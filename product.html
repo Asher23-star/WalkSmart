@@ -190,23 +190,22 @@
       
     /* For responsive view (phone view) */
     @media (max-width: 767px) {
-     .header {
-      font-size:smaller;
-    flex-direction: column;
-    padding: 7px;
-    }
-
+    .header {
+      flex-direction: column;
+      position: fixed; 
+      top: 0; 
+      }
+   
     .nav-links {
-    display: flex;
-    gap: 8px; /* Adjust spacing between links */
-    align-items: center; /* Center the links */
-  }
-
-  .nav-links a {
-    margin: 0; /* Remove extra margin */
-    padding: 5px 10px; /* Adjust padding for compactness */
-    font-size: 16px; /* Optional: Adjust font size for readability */
-  }
+      display: flex;
+      gap: 2px; 
+      align-items: center; 
+      }
+    .nav-links a {
+      margin: 0; 
+      padding: 3px 10x;
+      font-size: 16px; 
+      } 
     
     footer {
       font-size:smaller;
@@ -311,9 +310,6 @@
           <a href="Dashboard.html">Dashboard</a>
           <a href="index.html" class="logout">Log out</a>
         </nav>
-         <div class="exit-button">
-            <a href="index.html" class="exit">Exit</a>
-         </div>
       </header>
       <br>
      
