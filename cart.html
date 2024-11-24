@@ -455,7 +455,7 @@
         
         finaldistot = grandtot-dis;
         let tocheckout = [grandtot, dis, finaldistot];
-        localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) 
+     
     }
     
     //function used to change the quantity of products within the cart through the add and minus images then updating the cart in local storage
@@ -510,8 +510,6 @@
     }
     finaldistot = grandtot-dis;
     document.getElementById("GT").innerHTML=`Discount: -$${dis.toFixed(2)}<br>Grandtotal: $${finaldistot.toFixed(2)}`;
-    let tocheckout = [grandtot, dis, finaldistot]; 
-    localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) //storing of important figures to avoid redundant calculation on future pages
     }
     
     updateCartDisplay(); //call of update cart display function
