@@ -404,11 +404,18 @@
     let dis = 0;
     let finaldistot = grandtot;
     let coltotal = [];
+    let l = 0;
+    let totl = 0;
+    let tottax = 0;
+    
 
     //function used to add each item to the cart and represent them on the page
     function updateCartDisplay() {
+      totl = 0;
+      tottax = 0;
       grandtot = 0;
       coltotal = [];
+      tax=0;
         let cartTableRows = `
         <tr align="center">
                 <td colspan="5"><h1>Shopping Cart</h1></td>
@@ -427,8 +434,11 @@
             //test to see if the cart is empty to then carry out calculations to be displayed
         if (cart.length > 0) {
             cart.forEach((item, x) => {
-                const tax = (item.price * 0.05).toFixed(2);
-                const total = (item.price * item.quantity + (item.quantity*parseFloat(tax))).toFixed(2);
+                 l = (item.price * item.quantity);
+                 tax = (item.price * 0.05).toFixed(2);
+                const total = (l + (item.quantity*parseFloat(tax))).toFixed(2);
+                totl+=l;
+                tottax += parseFloat(tax)*item.quantity;
                 grandtot+=parseFloat(total);
                 coltotal.push(parseFloat(total));
                 cartTableRows += `<tr align="center" style="font-size: small;">
@@ -443,6 +453,7 @@
                     </tr>
                     <tr><td colspan="5"><hr color="black" style="width:100%"></td></tr>`;
                     
+                    
             });
         } else {
             cartTableRows += `<tr><td colspan="5" align="center">Your cart is empty.</td></tr>`;
@@ -454,7 +465,7 @@
         localStorage.setItem('collectedtot',JSON.stringify(coltotal));
         
         finaldistot = grandtot-dis;
-        let tocheckout = [grandtot, dis, finaldistot];
+        let tocheckout = [grandtot, dis, finaldistot,totl,tottax];
         localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) 
     }
     
@@ -510,7 +521,7 @@
     }
     finaldistot = grandtot-dis;
     document.getElementById("GT").innerHTML=`Discount: -$${dis.toFixed(2)}<br>Grandtotal: $${finaldistot.toFixed(2)}`;
-    let tocheckout = [grandtot, dis, finaldistot]; 
+    let tocheckout = [grandtot, dis, finaldistot,totl,tottax]; 
     localStorage.setItem("valuesforco",JSON.stringify(tocheckout)) //storing of important figures to avoid redundant calculation on future pages
     }
     
