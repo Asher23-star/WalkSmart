@@ -17,6 +17,8 @@ Tasks Done:
 -html, script and wireframe for dashboard
 -html and script for user invoices
 -html and script for all invoices
+-wireframe for checkout
+-wireframe for reset password
 
 TENIQUE ROBINSON - 2305605
 Tasks Done: 
