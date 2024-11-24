@@ -119,26 +119,6 @@
       background-color: #da1f1f;
     }
 
-    /* Style for the "exit- go to home" link */
-    .exit-link {
-      position: fixed; 
-      top: 89%; 
-      left: 2.8%; 
-      border-radius: 10px;
-      color: white;
-      background-color: #ff3131;
-      padding: 15px 20px;
-      text-decoration: none;
-    }
-    .exit-link:hover {
-      background-color: #da1f1f;
-      transform: scale(1.05);
-    } 
-      
-    //exit Button reserved for phone view 
-    .exit {
-        display:none;
-    }
       
     .size-button.active {
         background-color: #ff3131; 
@@ -210,23 +190,7 @@
       
     /* For responsive view (phone view) */
     @media (max-width: 767px) {
-    .header {
-      flex-direction: column;
-      position: fixed; 
-      top: 0; 
-      }
-   
-    .nav-links {
-      display: flex;
-      gap: 2px; 
-      align-items: center; 
-      }
-
-    .nav-links a {
-      margin: 0; 
-      padding: 3px 10x;
-      font-size: 16px; 
-      }   .header {
+     .header {
       font-size:smaller;
     flex-direction: column;
     padding: 7px;
@@ -254,34 +218,6 @@
       margin-top: auto;
   }
 
-      .exit-button {
-        display: flex;
-        justify-content: center; 
-        gap: 10px; 
-        margin-top: 10px;
-      }
-
-      .exit {
-        display: inline-block;
-        padding: 8px 12px; 
-        font-size: 14px;
-        color: white;
-        background-color: #ff3131;
-        text-decoration: none;
-        border-radius: 10px;
-        text-align: center;
-        white-space: nowrap; 
-      }
-
-      .exit:hover {
-          background-color: #da1f1f;
-      }
-      
-      .exit-link,
-      .cart-link,
-      .checkout-link {
-          display: none; /* Hide these links in small viewports */
-      }
 
       body {
           margin-top: 170px; 
@@ -360,17 +296,6 @@
     /* Adjust the container to be full width on smaller screens */
     .container {
       width: 100%;
-    }
-
-    /* Adjust the position of fixed links for smaller screens */
-    .exit-link, .cart-link, .checkout-link {
-      position: relative;
-      top: auto;
-      left: auto;
-      right: auto;
-      margin: 10px;
-      width: auto;
-      padding: 10px 15px;
     }
   }
   </style>
