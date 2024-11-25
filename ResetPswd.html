@@ -21,7 +21,7 @@
     </div>
     
     <div class="wrapper">
-        <form onsubmit="resetPassword(event)">
+        <form>
             <h1>Reset Password</h1>
             <div class="input-box">
                 <input type="text" id="trn" placeholder="TRN" required>
@@ -38,12 +38,12 @@
                 <i style="color: black;" class='bx bxs-lock-alt'></i>
             </div>
 
-            <button type="submit" class="btn">RESET</button>
+            <button onclick="resetPassword()" type="button" class="btn">RESET</button>
         </form>
     </div>
 
     <script>
-        function resetPassword(event) {
+        function resetPassword() {
             event.preventDefault();
 
             // Retrieve users array from localStorage
