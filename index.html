@@ -68,11 +68,7 @@
                 return; // Exit the function after successful login for predefined user
             }
         
-            // Check if the entered TRN exists in the stored data
-            if (!usersData || !usersData[enteredTrn]) {
-                alert('No registered user found with this TRN.');
-                return;
-            }
+    
         
             // Retrieve the user data based on TRN
             const userData = usersData[enteredTrn];
