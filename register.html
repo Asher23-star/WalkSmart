@@ -14,7 +14,7 @@
     <img src="Walk Smart.png" class="logo">
     <h1 class="walksmart-header">Walk Smart</h1>
     <div class="wrapper">
-        <form>
+        <form id="registrationForm">
             <h1>Register</h1>
 
             <div class="input-box">
@@ -73,7 +73,8 @@
     </div>
 
     <script>
-        const form = document.querySelector('form');
+        // Select the form
+        const form = document.getElementById('registrationForm');
         
         // Add an event listener to the form submit event
         form.addEventListener('submit', function (event) {
