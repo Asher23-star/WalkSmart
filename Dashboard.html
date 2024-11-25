@@ -14,14 +14,14 @@
 
     <body>
        <header class="header">
-            <a href="index.html">
+            <a href="product.html">
               <img src="Walk Smart.png" alt="Logo" class="logo">
             </a>
             <nav class="nav-links">
-              <a href="product.html">Products</a>
+                <a href="product.html">Products</a>
                 <a href="cart.html"><i style="font-size: 25px; color: white; margin-left:0px;" class="fas">&#xf217;</i></a>
-              <a href="Dashboard.html">Dashboard</a>
-              <a href="index.html" class="login">Logout</a>
+                <a href="Dashboard.html">Dashboard</a>
+                <a href="index.html" class="login">Logout</a>
             </nav>
         </header>
         <div>
@@ -83,21 +83,58 @@
             </div>
         </div>
 
+        <footer>
+            <div class="locations">
+              <h1>Store Locations</h1>
+              <ul style="list-style-type: none;">
+                <li>Walk Smart Mandeville</li>
+                <li>Walk Smart Kingston</li>
+                <li>Walk Smart Falmouth</li>
+                <li>Walk Smart Montego Bay</li>
+                <li>Walk Smart Spanish Town</li>
+              </ul>
+            </div>
+            <div class="contact">
+              <h1>Get in Touch</h1>
+              <p>1-876-553-2950 • Contact Us</p>
+              <p>Mon to Sat: 9am-6pm (EST)<br>Sun: Closed</p>
+            </div>
+          </footer>
+
     </body>
 
     <script>
+        //localStorage.clear();
+
+
         var gchart = null;
         var achart = null;
 
         function ShowUserFrequency(type) 
         {
-            var male = 20;
-            var female = 30;
+            //Retrieve the gender counts
+            let maleCount = parseInt(localStorage.getItem('maleCount')) || 0;
+            let femaleCount = parseInt(localStorage.getItem('femaleCount')) || 0;
+
+            console.log('Male Count:', maleCount);
+            console.log('Female Count:', femaleCount);
+
+
+            let ageGroup18to25 = parseInt(localStorage.getItem('ageGroup18to25')) || 0;
+            let ageGroup26to35 = parseInt(localStorage.getItem('ageGroup26to35')) || 0;
+            let ageGroup36to50 = parseInt(localStorage.getItem('ageGroup36to50')) || 0;
+            let ageGroup50plus = parseInt(localStorage.getItem('ageGroup50plus')) || 0;
+
+            console.log('Age Group 18-25:', ageGroup18to25);
+            console.log('Age Group 26-35:', ageGroup26to35);
+            console.log('Age Group 36-50:', ageGroup36to50);
+            console.log('Age Group 50+:', ageGroup50plus);
+        
 
             /* Gender Chart */
             var genderOptions = {
                 series: [{
-                    data: [male, female],
+                    data: [maleCount, femaleCount],
                 }],
                 chart: {
                     type: 'bar',
@@ -129,7 +166,7 @@
             /* Age Chart */
             var ageOptions = {
                 series: [{
-                    data: [3, 10, 16, 20],
+                    data: [ageGroup18to25, ageGroup26to35, ageGroup36to50, ageGroup50plus],
                     name: "Age",
                 }],
                 chart: {
