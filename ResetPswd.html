@@ -60,12 +60,9 @@
                 return;
             }
 
-            // Try to find the user by TRN
-            const userx = users.findIndex(user => user.trn === trn);
-
             // If the user is found, update their password
-            if (userx !== -1) {
-                users[userx].password = newPassword; // Update the password
+            if (users[trn]) {
+                users[trn].password = newPassword; // Update the password
                 localStorage.setItem("RegistrationData", JSON.stringify(users)); // Save updated user data in localStorage
 
                 alert("Your password has been reset successfully!");
