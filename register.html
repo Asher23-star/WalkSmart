@@ -81,8 +81,6 @@
   </body>
 
   <script>
-      //localStorage.clear();
-
       const form = document.querySelector('form');
       
       // Add an event listener to the form submit event
@@ -148,27 +146,30 @@
           }
       
           // Log the stored data to verify it's being saved
-          console.log('Registration Data saved to localStorage:', localStorage.getItem('RegistrationData'));
+          
           console.log('Male Count:', maleCount);
           console.log('Female Count:', femaleCount);
 
           // Age group count tracking
-      let ageGroup18to25 = parseInt(localStorage.getItem('ageGroup18to25')) || 0;
+          let ageGroup18to25 = parseInt(localStorage.getItem('ageGroup18to25')) || 0;
           let ageGroup26to35 = parseInt(localStorage.getItem('ageGroup26to35')) || 0;
           let ageGroup36to50 = parseInt(localStorage.getItem('ageGroup36to50')) || 0;
           let ageGroup50plus = parseInt(localStorage.getItem('ageGroup50plus')) || 0;
           
           // Increment the correct age group based on the user's age
-          if (age >= 18 && age <= 25) {
+          if (age >= 18 && age <= 25) 
+          {
               ageGroup18to25++;
               localStorage.setItem('ageGroup18to25', ageGroup18to25);
           } else if (age >= 26 && age <= 35) {
               ageGroup26to35++;
               localStorage.setItem('ageGroup26to35', ageGroup26to35);
-          } else if (age >= 36 && age <= 50) {
+          } else if (age >= 36 && age <= 50) 
+          {
               ageGroup36to50++;
               localStorage.setItem('ageGroup36to50', ageGroup36to50);
-          } else if (age > 50) {
+          } else if (age > 50) 
+          {
               ageGroup50plus++;
               localStorage.setItem('ageGroup50plus', ageGroup50plus);
           }
@@ -176,6 +177,7 @@
           console.log('Age Group 26-35:', ageGroup26to35);
           console.log('Age Group 36-50:', ageGroup36to50);
           console.log('Age Group 50+:', ageGroup50plus);
+          console.log('Registration Data saved to localStorage:', localStorage.getItem('RegistrationData'));
       
           // Optionally, provide feedback or redirect the user
           alert('Registration successful! Data has been saved.');
