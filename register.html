@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
         </div>
         
         <div class="wrapper">
-            <form onsubmit="" class ="signup">
+            <form onsubmit="">
               <h1>Register</h1>
                 
                 <div class="input-box">
@@ -81,41 +82,81 @@
 
             </form>
         </div>
-        <script>
-         document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const dob = new Date(document.getElementById("dob").value);
-  const age = new Date().getFullYear() - dob.getFullYear();
-
-  if (age < 18) {
-    alert("You must be at least 18 years old to register.");
-    return;
-  }
-
-  const newUser = {
-    fname: document.getElementById("fname").value,
-    lname: document.getElementById("lname").value,
-    dateOfBirth: dob.toISOString().split("T")[0],
-    sex: document.getElementById("gender").value,
-    phone: document.querySelector("input[type='tel']").value,
-    email: document.getElementById("email").value,
-    idnum: document.getElementById("trn").value,
-    pass: document.getElementById("password").value,
-    dateOfRegistration: new Date().toISOString().split("T")[0],
-    cart: {},
-    invoices: [],
-  };
-
-  const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
-  registrationData.push(newUser);
-  localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
-
-  alert("Registration successful!");
-  window.location.href = "index.html";
-});
-
-        </script>
     </body>
 
+    <script>
+      // Get the form element
+      const form = document.querySelector('form');
+      
+      // Add an event listener to the form submit event
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+    
+        // Collect user input values
+        const userData = {
+          firstName: document.getElementById('fname').value,
+          lastName: document.getElementById('lname').value,
+          dob: document.getElementById('dob').value,
+          gender: document.getElementById('gender').value,
+          phoneNumber: document.querySelector('input[type="tel"]').value,
+          email: document.getElementById('email').value,
+          trn: document.getElementById('trn').value,
+          password: document.getElementById('password').value,
+        };
+    
+        // Log the user data to verify it's being captured correctly
+        console.log('Registration Data:', userData);
+    
+        // Check if the user is over 18
+        const dob = new Date(userData.dob);
+        const age = calculateAge(dob);
+    
+        if (age < 18) {
+          alert("You must be at least 18 years old to register.");
+          return; // Prevent form submission
+        }
+    
+        // Check if the password is at least 8 characters long
+        if (userData.password.length < 8) {
+          alert("Password must be at least 8 characters long.");
+          return; // Prevent form submission
+        }
+    
+        // Retrieve existing users data from localStorage (if any)
+        let users = JSON.parse(localStorage.getItem('UsersData')) || {};
+    
+        // Check if the TRN already exists
+        if (users[userData.trn]) {
+          alert("A user with this TRN already exists.");
+          return; // Prevent form submission
+        }
+    
+        // Save new user data in the users object using TRN as the key
+        users[userData.trn] = userData;
+    
+        // Save updated users data to localStorage
+        localStorage.setItem('UsersData', JSON.stringify(users));
+    
+        // Log the stored data to verify it's being saved
+        console.log('Registration Data saved to localStorage:', localStorage.getItem('UsersData'));
+    
+        // Optionally, provide feedback or redirect the user
+        alert('Registration successful! Data has been saved.');
+        // Redirect to a different page, e.g., a login page
+        window.location.href = "index.html";
+      });
+    
+      // Function to calculate the age based on the date of birth
+      function calculateAge(dob) {
+        const today = new Date();
+        const age = today.getFullYear() - dob.getFullYear();
+        const month = today.getMonth() - dob.getMonth();
+    
+        // If the birthday hasn't occurred yet this year, subtract 1 from the age
+        if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
+          return age - 1;
+        }
+        return age;
+      }
+    </script>
 </html>
