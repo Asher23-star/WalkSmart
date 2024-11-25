@@ -224,35 +224,48 @@
 
             
         }
+function ShowInvoices() {
+    const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
+    
+    if (allInvoices.length === 0) {
+        console.log("No invoices found.");
+        return;
+    }
 
-        function ShowInvoices() 
-        {
-            var iframe = document.getElementById("frm1");
+    // Log all invoices to the console
+    console.log("All Invoices:", allInvoices);
 
-            if (iframe.style.display === "none" || iframe.style.display === "") 
-            {
-                iframe.style.display = "block"; 
-            } 
-            else 
-            {
-                iframe.style.display = "none"; 
-            }
-        }
+    // Optionally: implement a TRN search feature
+    const searchTRN = prompt("Enter TRN to search for invoices:");
+    if (searchTRN) {
+        const filteredInvoices = allInvoices.filter(invoice => invoice.trn === searchTRN);
+        console.log(`Invoices for TRN ${searchTRN}:`, filteredInvoices);
+    }
+}
 
-        function GetUserInvoices() 
-        {
-            var iframe = document.getElementById("frm2");
-            
-            // Toggle iframe visibility (hide if visible, show if hidden)
-            if (iframe.style.display === "none" || iframe.style.display === "") 
-            {
-                iframe.style.display = "block"; 
-            } 
-            else 
-            {
-                iframe.style.display = "none"; 
-            }
-        }
+function GetUserInvoices() {
+    const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+    const loggedInTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN"));
+
+    if (!loggedInTRN) {
+        console.log("No logged-in user found.");
+        return;
+    }
+
+    const user = registrationData.find(user => user.idnum === loggedInTRN);
+    if (!user || !user.invoices) {
+        console.log(`No invoices found for user with TRN ${loggedInTRN}.`);
+        return;
+    }
+
+    // Log user's invoices to the console
+    console.log(`Invoices for User TRN ${loggedInTRN}:`, user.invoices);
+
+    // Optionally display invoices in a user interface
+    const iframe = document.getElementById("frm2");
+    iframe.style.display = iframe.style.display === "none" || iframe.style.display === "" ? "block" : "none";
+}
+
 
         
     </script>
