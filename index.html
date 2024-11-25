@@ -85,8 +85,15 @@
                 alert('Login successful!');
                 window.location.href = 'product.html';
             } else {
-                alert('Invalid TRN or password. Please try again.');
-            }
+          loginAttempts++;
+          if (loginAttempts >= 3) {
+            window.location.href = 'error.html';
+          } else {
+            alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
+            // Clear the form fields
+            form.reset();
+          }
+        }
         }
     </script>
       
