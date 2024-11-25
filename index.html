@@ -43,34 +43,46 @@
 </body>
 
 <script>
-    let attempts = 0; 
+    let loginAttempts = 0; 
     const maxAttempts = 3; 
 
-   function validateLogin(event) {
-  event.preventDefault();
+    function validateLogin(event) {
+        event.preventDefault();
 
-  const trn = document.getElementById("loginTrn").value;
-  const password = document.getElementById("loginPassword").value;
+        const trn = document.getElementById("loginTrn").value;
+        const password = document.getElementById("loginPassword").value;
 
-  const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
-  const user = registrationData.find(user => user.idnum === trn && user.pass === password);
+        // Alternative constant credentials for special login
+        const alterTrn = "cit2011";
+        const alterPass = "programming";
 
-  if (user) {
-    alert("Login successful!");
-    localStorage.setItem("LoggedInUserTRN", trn);
-    window.location.href = "product.html";
-  } else {
-          loginAttempts++;
-          if (loginAttempts >= 3) {
-            window.location.href = 'error.html';
-          } else {
-            alert(`Invalid login. You have ${3 - loginAttempts} attempt(s) left.`);
-            // Clear the form fields
-            form.reset();
-          }
+        // Check if the entered credentials match the alternative credentials
+        if (trn === alterTrn && password === alterPass) {
+            alert("Alternative login successful!");
+            window.location.href = "product.html"; // Redirect to the product page for alternative login
+            return;
         }
-}
-document.getElementById("loginForm").addEventListener("submit", validateLogin);
 
+        // Retrieve registration data from localStorage
+        const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+        const user = registrationData.find(user => user.idnum === trn && user.pass === password);
+
+        if (user) {
+            alert("Login successful!");
+            localStorage.setItem("LoggedInUserTRN", trn);
+            window.location.href = "product.html"; // Redirect to the product page for registered users
+        } else {
+            loginAttempts++;
+            if (loginAttempts >= maxAttempts) {
+                window.location.href = 'error.html'; // Redirect to an error page after 3 failed attempts
+            } else {
+                alert(`Invalid login. You have ${maxAttempts - loginAttempts} attempt(s) left.`);
+                document.getElementById("loginForm").reset(); // Clear the form fields
+            }
+        }
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", validateLogin);
 </script>
+
 </html>
