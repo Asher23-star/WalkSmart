@@ -584,28 +584,6 @@
       document.querySelectorAll('.size-button').forEach(button => button.addEventListener('click', selectSize));
       document.querySelectorAll('.add-to-cart').forEach(button => button.addEventListener('click', addToCart));
       
-      window.addEventListener("scroll", function() {
-    const footer = document.querySelector("footer");
-    const exitLink = document.querySelector(".exit-link");
-    const checkoutLink = document.querySelector(".checkout-link");
-    const cartLink = document.querySelector(".cart-link");
-
-    const footerPosition = footer.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-
-    // Check if the footer is in view
-    if (footerPosition <= windowHeight) {
-        // Hide exit and checkout links if the footer is visible
-        exitLink.style.display = "none";
-        checkoutLink.style.display = "none";
-        cartLink.style.display = "none";
-    } else {
-        // Show exit and checkout links if the footer is not visible
-        exitLink.style.display = "inline";
-        checkoutLink.style.display = "inline";
-        cartLink.style.display = "inline";
-    }
-});
 
      // Retrieve registration data from localStorage
 const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
