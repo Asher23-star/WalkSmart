@@ -282,25 +282,28 @@ footer h1 {
   const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
   const currentUserTRN = JSON.parse(localStorage.getItem("LoggedInUserTRN"));
 
-  const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
-  if (currentUser) {
+ const currentUser = registrationData.find(user => user.idnum === currentUserTRN);
+if (currentUser) {
     const newInvoice = {
-      invoiceNumber,
-      date: new Date().toISOString().split("T")[0],
-      items: cartData,
-      subtotal: totl.toFixed(2),
-      tax: tottax.toFixed(2),
-      total: finaldistot.toFixed(2),
-      shippingDetails: shipping,
+        invoiceNumber,
+        date: new Date().toISOString().split("T")[0],
+        items: cartData,
+        subtotal: totl.toFixed(2),
+        tax: tottax.toFixed(2),
+        total: finaldistot.toFixed(2),
+        shippingDetails: shipping,
     };
 
     currentUser.invoices = currentUser.invoices || [];
     currentUser.invoices.push(newInvoice);
 
+    // Update localStorage
     localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+    const allInvoices = JSON.parse(localStorage.getItem("AllInvoices")) || [];
     allInvoices.push({ trn: currentUserTRN, invoice: newInvoice });
     localStorage.setItem("AllInvoices", JSON.stringify(allInvoices));
-  }
+}
+
 </script>
 
     
