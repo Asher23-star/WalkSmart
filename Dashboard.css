@@ -117,10 +117,11 @@ body {
     transform: scale(1.05);
 }
 
-.horizontal-container {
+.horizontal-container 
+{
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 698px;
     height: 49.4vh;
     margin-top: 10px;
     border: 2px solid black;
@@ -136,7 +137,26 @@ body {
     height: 5%;
 }
 
-@media (min-width: 500px)
+
+footer{
+  background-color: #c80808;
+  padding: 40px;
+  color: white;
+  display: flex;  
+  align-items: flex-start; 
+  justify-content: space-between;
+  margin-top: auto;
+}
+  
+footer .locations, footer .contact {
+    margin: 10px 0;
+  }
+
+  footer h1 {
+    font-size: 24px;
+  }
+
+@media (min-width: 500px) /*Big Screen*/
 {
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -194,7 +214,7 @@ body {
           display: flex;
           flex-direction: column;
           width: 300px;
-          height: 100vh;
+          height: 100.4vh;
           margin-top: 10px;
           border: 2px solid black;
       }
@@ -263,7 +283,7 @@ body {
       .horizontal-container {
           display: flex;
           flex-direction: column;
-          width: 600px;
+          width: 598px;
           height: 49.4vh;
           margin-top: 10px;
           border: 2px solid black;
@@ -284,10 +304,28 @@ body {
         border-radius: 5px;
         height: 5%;
       }
+
+      footer{
+        background-color: #c80808;
+        padding: 40px;
+        color: white;
+        display: flex;  
+        align-items: flex-start; 
+        justify-content: space-between;
+        margin-top: auto;
+      }
+        
+      footer .locations, footer .contact {
+          margin: 10px 0;
+        }
+      
+        footer h1 {
+          font-size: 24px;
+        }
       
 }
   
-@media (max-width: 426px)
+@media (max-width: 426px) /*Small Screen*/
 {
     .logo {
         margin-left: 20px;
@@ -412,6 +450,7 @@ body {
         height: 230px;
     }
 
+    /* Adjust the flex layout for the beside class */
     .beside 
     {
         display: flex;
@@ -420,6 +459,7 @@ body {
         flex-wrap: wrap;
     }
 
+    /* Style the iframe elements */
     iframe 
     {
         width: 100%;
