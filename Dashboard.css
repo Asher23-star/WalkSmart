@@ -121,7 +121,7 @@ body {
 {
     display: flex;
     flex-direction: column;
-    width: 598px;
+    width: 698px;
     height: 49.4vh;
     margin-top: 10px;
     border: 2px solid black;
@@ -156,7 +156,7 @@ footer .locations, footer .contact {
     font-size: 24px;
   }
 
-@media (min-width: 500px) /Big Screen/
+@media (min-width: 500px) /*Big Screen*/
 {
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -288,6 +288,11 @@ footer .locations, footer .contact {
           margin-top: 10px;
           border: 2px solid black;
       }
+      
+      .horizontal-container input
+      {
+        width: 20%;
+      }
 
       .horizontal-container iframe
       {
@@ -320,7 +325,7 @@ footer .locations, footer .contact {
       
 }
   
-@media (max-width: 426px) /Small Screen/
+@media (max-width: 426px) /*Small Screen*/
 {
     .logo {
         margin-left: 20px;
@@ -461,3 +466,4 @@ footer .locations, footer .contact {
         border: 2px solid #ddd;
     }
 }
+
