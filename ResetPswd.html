@@ -47,7 +47,7 @@
             event.preventDefault();
 
             // Retrieve users array from localStorage
-            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
 
             // Get the values entered by the user
             const trn = document.getElementById("trn").value;
@@ -61,7 +61,7 @@
             }
 
             // Try to find the user by TRN
-            const user = users.find(user => user.trn === trn);
+            const user = users.find(user => users.trn === trn);
 
             // If the user is found, update their password
             if (user) {
