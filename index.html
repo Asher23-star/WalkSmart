@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login_Style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="wordless.png" type="image/png">
-    <title>Login</title>
-</head>
-<body>
-    <img src="Walk Smart.png" class="logo">
-    <h1 class="walksmart-header">
-        Walk Smart
-    </h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Login_Style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="icon" href="wordless.png" type="image/png">
+        <title>Login</title>
+    </head>
+    <body>
+        <img src="Walk Smart.png" class="logo">
+        <h1 class="walksmart-header">
+            Walk Smart
+        </h1>
 
-    <div class="wrapper">
-        <form id="loginForm" onsubmit="validateLogin(event)">
-            <h1 style="color: black; font-size: 60px; margin-top: 0%;"><i class='bx bx-user-circle'></i></h1>
-            <div class="input-box">
-                <input type="text" id="loginTrn" placeholder="TRN" required>
-                <i class='bx bxs-id-card'></i>
-            </div>
+        <div class="wrapper">
+            <form id="loginForm" onsubmit="validateLogin(event)">
+                <h1 style="color: black; font-size: 60px; margin-top: 0%;"><i class='bx bx-user-circle'></i></h1>
+                <div class="input-box">
+                    <input type="text" id="loginTrn" placeholder="TRN" required>
+                    <i class='bx bxs-id-card'></i>
+                </div>
 
-            <div class="input-box">
-                <input type="password" id="loginPassword" placeholder="Password" required pattern=".{8,}">
-                <i class='bx bxs-lock-alt'></i>
-            </div>
+                <div class="input-box">
+                    <input type="password" id="loginPassword" placeholder="Password" required pattern=".{8,}">
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
 
-            <div class="remember-forgot">
-                <a href="ResetPswd.html">Forgot password?</a>
-            </div>
+                <div class="remember-forgot">
+                    <a href="ResetPswd.html">Forgot password?</a>
+                </div>
 
-            <button type="submit" class="btn">LOG IN</button>
+                <button type="submit" class="btn">LOG IN</button>
 
-            <div class="register-link">
-                <p>Don't have an account?
-                <a href="register.html">Register</a></p>
-            </div>
-        </form>
-    </div>
-</body>
+                <div class="register-link">
+                    <p>Don't have an account?
+                    <a href="register.html">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </body>
 
-<script>
-    let loginAttempts = 0; 
-    const maxAttempts = 3; 
+    <script>
+        //localStorage.clear();
 
-    function validateLogin(event) {
-        event.preventDefault();
 
-        const trn = document.getElementById("loginTrn").value;
-        const password = document.getElementById("loginPassword").value;
-
-        // Alternative constant credentials for special login
-        const alterTrn = "cit2011";
-        const alterPass = "programming";
-
-        // Check if the entered credentials match the alternative credentials
-        if (trn === alterTrn && password === alterPass) {
-            alert("Alternative login successful!");
-            window.location.href = "product.html"; // Redirect to the product page for alternative login
-            return;
-        }
-
-        // Retrieve registration data from localStorage
-        const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
-        const user = registrationData.find(user => user.idnum === trn && user.pass === password);
-
-        if (user) {
-            alert("Login successful!");
-            localStorage.setItem("LoggedInUserTRN", trn);
-            window.location.href = "product.html"; // Redirect to the product page for registered users
-        } else {
-            loginAttempts++;
-            if (loginAttempts >= maxAttempts) {
-                window.location.href = 'error.html'; // Redirect to an error page after 3 failed attempts
+        // Function to handle login form submission and validate user credentials
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            
+            // Get the entered TRN and password
+            const enteredTrn = document.getElementById('loginTrn').value.trim();
+            const enteredPassword = document.getElementById('loginPassword').value.trim();
+        
+            // Log the entered data for debugging
+            console.log('Entered TRN:', enteredTrn);
+            console.log('Entered Password:', enteredPassword);
+        
+            // Retrieve stored users data from localStorage
+            const usersData = JSON.parse(localStorage.getItem('RegistrationData'));
+            console.log('Stored Users Data:', usersData); // Log the stored data
+        
+            // Check for predefined user (TRN: 123456789 and Password: programming)
+            if (enteredTrn === '123456789' && enteredPassword === 'programming') {
+                alert('Predefined user login successful!');
+                window.location.href = 'product.html';
+                return; // Exit the function after successful login for predefined user
+            }
+        
+            // Check if the entered TRN exists in the stored data
+            if (!usersData || !usersData[enteredTrn]) {
+                alert('No registered user found with this TRN.');
+                return;
+            }
+        
+            // Retrieve the user data based on TRN
+            const userData = usersData[enteredTrn];
+        
+            // Log the parsed user data for debugging
+            console.log('Parsed Registration Data:', userData);
+        
+            // Validate TRN and password
+            if (enteredTrn === userData.trn && enteredPassword === userData.password) {
+                alert('Login successful!');
+                window.location.href = 'product.html';
             } else {
-                alert(`Invalid login. You have ${maxAttempts - loginAttempts} attempt(s) left.`);
-                document.getElementById("loginForm").reset(); // Clear the form fields
+                alert('Invalid TRN or password. Please try again.');
             }
         }
-    }
-
-    document.getElementById("loginForm").addEventListener("submit", validateLogin);
-</script>
-
+    </script>
+      
 </html>
