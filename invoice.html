@@ -139,15 +139,32 @@ footer h1 {
     .cancel-button:hover {
       background-color: #da1f1f;
     }
-      
+
+      @media (max-width: 767px) {
+        .header {
+          font-size:smaller;
+        flex-direction: column;
+        padding: 7px;
+        }
+    
+        .nav-links {
+        display: flex;
+        gap: 8px; /* Adjust spacing between links */
+        align-items: center; /* Center the links */
+      }
+    
+      .nav-links a {
+        margin: 0; /* Remove extra margin */
+        padding: 5px 10px; /* Adjust padding for compactness */
+        font-size: 16px; /* Optional: Adjust font size for readability */
+      }
+   }
     </style>
   </head>
 
     <body style="font-family: Verdana, Geneva, Tahoma, sans-serif; margin: 0; background-color: white">
        <header class="header">
-          <a href="index.html">
-            <img src="Walk Smart.png" alt="Logo" class="logo">
-          </a>
+          <img src="Walk Smart.png" alt="Logo" class="logo">
           <nav class="nav-links">
             <a href="product.html">Products</a>
             <a href="Dashboard.html">Dashboard</a>
