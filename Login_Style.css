@@ -87,6 +87,28 @@ body
     font-size: 20px;
 }
 
+/* Gender select input style */
+.gender-select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    padding: 0 20px;
+}
+
+/* Option styles inside the select box */
+.gender-select option {
+    font-size: 16px;
+    color: black;
+    background-color: white;
+}
+
+
 .wrapper .remember-forgot
 {
     display: flex;
