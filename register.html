@@ -1,162 +1,201 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login_Style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Register</title>
-    
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="Login_Style.css">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="icon" href="wordless.png" type="image/png">
+      <title>Register</title>
+  </head>
 
-    <body>
-        <img src="Walk Smart.png" class="logo">
-        <h1 class="walksmart-header">
-            Walk Smart
-        </h1>
-        <div style="position: absolute; left: 10px; top: 10px;">
-            <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
-        </div>
-        
-        <div class="wrapper">
-            <form onsubmit="">
+  <body>
+      <img src="Walk Smart.png" class="logo">
+      <h1 class="walksmart-header">
+          Walk Smart
+      </h1>
+      <div style="position: absolute; left: 10px; top: 10px;">
+          <img src="Logo.jpg" alt="" style="width: 100px; border-radius: 50%;">
+      </div>
+
+      <div class="wrapper">
+          <form>
               <h1>Register</h1>
-                
-                <div class="input-box">
+
+              <div class="input-box">
                   <label>First Name</label>
                   <input type="text" id="fname" placeholder="Enter your first name" required>
-                </div>
-                <br>
+              </div>
+              <br>
 
-                <div class="input-box">
+              <div class="input-box">
                   <label>Last Name</label>
                   <input type="text" id="lname" placeholder="Enter your last name" required>
-                </div>
-                <br>
+              </div>
+              <br>
 
-      
-                <div class="input-box">
+              <div class="input-box">
                   <label>Date of Birth</label>
                   <input type="date" id="dob" class="textbox" required>
-                </div>
-                <br>
+              </div>
+              <br>
 
-               
-                <div class="input-box">
+              <div class="input-box">
                   <label>Gender</label>
-                    <input type="text" id="gender" placeholder="Male/Female/Other" required>
-                </div>
-                <br>
+                  <select id="gender" class="gender-select" required>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                  </select>
+              </div>
+              <br>
 
-                
-                <div class="input-box">
+              <div class="input-box">
                   <label>Phone Number</label>
-                    <input type="tel" placeholder="123-456-7890" required>
-                </div>
-                <br>
+                  <input type="tel" placeholder="123-456-7890" required>
+              </div>
+              <br>
 
-                
-                <div class="input-box">
+              <div class="input-box">
                   <label>Email</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
-                </div>
-                <br>
+                  <input type="email" id="email" placeholder="Enter your email" required>
+              </div>
+              <br>
 
-                
-                <div class="input-box">
+              <div class="input-box">
                   <label>TRN</label>
                   <input type="text" id="trn" placeholder="000-000-000" required>
-                </div>
-                <br>
+              </div>
+              <br>
 
-                
-                <div class="input-box">
+              <div class="input-box">
                   <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required>
-                </div>
-                <br>
+                  <input type="password" id="password" placeholder="Enter your password" required>
+              </div>
+              <br>
 
-                <button type="submit" class="btn">Register</button>
+              <button type="submit" class="btn">Register</button>
 
-            </form>
-        </div>
-    </body>
+          </form>
+      </div>
+  </body>
 
-    <script>
-      // Get the form element
+  <script>
+      //localStorage.clear();
+
       const form = document.querySelector('form');
       
       // Add an event listener to the form submit event
       form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-    
-        // Collect user input values
-        const userData = {
-          firstName: document.getElementById('fname').value,
-          lastName: document.getElementById('lname').value,
-          dob: document.getElementById('dob').value,
-          gender: document.getElementById('gender').value,
-          phoneNumber: document.querySelector('input[type="tel"]').value,
-          email: document.getElementById('email').value,
-          trn: document.getElementById('trn').value,
-          password: document.getElementById('password').value,
-        };
-    
-        // Log the user data to verify it's being captured correctly
-        console.log('Registration Data:', userData);
-    
-        // Check if the user is over 18
-        const dob = new Date(userData.dob);
-        const age = calculateAge(dob);
-    
-        if (age < 18) {
-          alert("You must be at least 18 years old to register.");
-          return; // Prevent form submission
-        }
-    
-        // Check if the password is at least 8 characters long
-        if (userData.password.length < 8) {
-          alert("Password must be at least 8 characters long.");
-          return; // Prevent form submission
-        }
-    
-        // Retrieve existing users data from localStorage (if any)
-        let users = JSON.parse(localStorage.getItem('UsersData')) || {};
-    
-        // Check if the TRN already exists
-        if (users[userData.trn]) {
-          alert("A user with this TRN already exists.");
-          return; // Prevent form submission
-        }
-    
-        // Save new user data in the users object using TRN as the key
-        users[userData.trn] = userData;
-    
-        // Save updated users data to localStorage
-        localStorage.setItem('UsersData', JSON.stringify(users));
-    
-        // Log the stored data to verify it's being saved
-        console.log('Registration Data saved to localStorage:', localStorage.getItem('UsersData'));
-    
-        // Optionally, provide feedback or redirect the user
-        alert('Registration successful! Data has been saved.');
-        // Redirect to a different page, e.g., a login page
-        window.location.href = "index.html";
+          event.preventDefault(); // Prevent the default form submission behavior
+      
+          // Collect user input values
+          const userData = {
+              firstName: document.getElementById('fname').value,
+              lastName: document.getElementById('lname').value,
+              dob: document.getElementById('dob').value,
+              gender: document.getElementById('gender').value, // Get gender from the dropdown
+              phoneNumber: document.querySelector('input[type="tel"]').value,
+              email: document.getElementById('email').value,
+              trn: document.getElementById('trn').value,
+              password: document.getElementById('password').value,
+          };
+      
+          // Log the user data to verify it's being captured correctly
+          console.log('Registration Data:', userData);
+      
+          // Check if the user is over 18
+          const dob = new Date(userData.dob);
+          const age = calculateAge(dob);
+      
+          if (age < 18) {
+              alert("You must be at least 18 years old to register.");
+              return; // Prevent form submission
+          }
+      
+          // Check if the password is at least 8 characters long
+          if (userData.password.length < 8) {
+              alert("Password must be at least 8 characters long.");
+              return; // Prevent form submission
+          }
+      
+          // Retrieve existing users data from localStorage (if any)
+          let users = JSON.parse(localStorage.getItem('RegistrationData')) || {};
+      
+          // Check if the TRN already exists
+          if (users[userData.trn]) {
+              alert("A user with this TRN already exists.");
+              return; // Prevent form submission
+          }
+      
+          // Save new user data in the users object using TRN as the key
+          users[userData.trn] = userData;
+      
+          // Save updated users data to localStorage with the new key 'RegistrationData'
+          localStorage.setItem('RegistrationData', JSON.stringify(users));
+      
+          // Gender count tracking
+          let maleCount = parseInt(localStorage.getItem('maleCount')) || 0;
+          let femaleCount = parseInt(localStorage.getItem('femaleCount')) || 0;
+          
+          // Increment the gender count based on the selected gender
+          if (userData.gender === "Male") {
+              maleCount++;
+              localStorage.setItem('maleCount', maleCount);
+          } else if (userData.gender === "Female") {
+              femaleCount++;
+              localStorage.setItem('femaleCount', femaleCount);
+          }
+      
+          // Log the stored data to verify it's being saved
+          console.log('Registration Data saved to localStorage:', localStorage.getItem('RegistrationData'));
+          console.log('Male Count:', maleCount);
+          console.log('Female Count:', femaleCount);
+
+          // Age group count tracking
+      let ageGroup18to25 = parseInt(localStorage.getItem('ageGroup18to25')) || 0;
+          let ageGroup26to35 = parseInt(localStorage.getItem('ageGroup26to35')) || 0;
+          let ageGroup36to50 = parseInt(localStorage.getItem('ageGroup36to50')) || 0;
+          let ageGroup50plus = parseInt(localStorage.getItem('ageGroup50plus')) || 0;
+          
+          // Increment the correct age group based on the user's age
+          if (age >= 18 && age <= 25) {
+              ageGroup18to25++;
+              localStorage.setItem('ageGroup18to25', ageGroup18to25);
+          } else if (age >= 26 && age <= 35) {
+              ageGroup26to35++;
+              localStorage.setItem('ageGroup26to35', ageGroup26to35);
+          } else if (age >= 36 && age <= 50) {
+              ageGroup36to50++;
+              localStorage.setItem('ageGroup36to50', ageGroup36to50);
+          } else if (age > 50) {
+              ageGroup50plus++;
+              localStorage.setItem('ageGroup50plus', ageGroup50plus);
+          }
+          console.log('Age Group 18-25:', ageGroup18to25);
+          console.log('Age Group 26-35:', ageGroup26to35);
+          console.log('Age Group 36-50:', ageGroup36to50);
+          console.log('Age Group 50+:', ageGroup50plus);
+      
+          // Optionally, provide feedback or redirect the user
+          alert('Registration successful! Data has been saved.');
+          // Redirect to a different page, e.g., a login page
+          window.location.href = "index.html";
+
       });
-    
+      
       // Function to calculate the age based on the date of birth
       function calculateAge(dob) {
-        const today = new Date();
-        const age = today.getFullYear() - dob.getFullYear();
-        const month = today.getMonth() - dob.getMonth();
-    
-        // If the birthday hasn't occurred yet this year, subtract 1 from the age
-        if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
-          return age - 1;
-        }
-        return age;
+          const today = new Date();
+          const age = today.getFullYear() - dob.getFullYear();
+          const month = today.getMonth() - dob.getMonth();
+      
+          // If the birthday hasn't occurred yet this year, subtract 1 from the age
+          if (month < 0 || (month === 0 && today.getDate() < dob.getDate())) {
+              return age - 1;
+          }
+          return age;
       }
-    </script>
+      
+  </script>
 </html>
